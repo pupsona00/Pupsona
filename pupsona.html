@@ -1,67 +1,1660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pupsona — Precision Dog Nutrition</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --blue:#1a6bda;--blue-light:#e8f0fd;--blue-mid:#4a90e2;--blue-dark:#0d4fa8;
+  --navy:#0b1f3a;--navy-mid:#132944;--navy-light:#1a3556;
+  --gray-bg:#f4f6f9;--gray-text:#6b7280;--white:#fff;
+  --border:#e2e8f0;--text:#0f1923;--text-muted:#64748b;
+  --green:#10b981;--red:#e53e3e;--red-light:#fff5f5;
+  --success-bg:#f0fdf4;--success-border:#86efac;
+}
+body{font-family:'Inter',sans-serif;color:var(--text);background:var(--white);overflow-x:hidden}
+h1,h2,h3,h4,.eyebrow{font-family:'Syne',sans-serif}
+a{text-decoration:none}
+button{cursor:pointer;font-family:'Inter',sans-serif}
 
-Pup
-sona
-	•	How It Works
-	•	For Vets
-	•	Pricing
-Log In
-Get Started
+/* PAGES */
+.page{display:none;min-height:100vh}
+.page.active{display:block}
 
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 5vw;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:var(--navy);letter-spacing:-0.5px;cursor:pointer;display:flex;align-items:center;gap:6px}
+.nav-logo span{color:var(--blue)}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{font-size:14px;font-weight:500;color:var(--text-muted);text-decoration:none;transition:color .2s;cursor:pointer}
+.nav-links a:hover{color:var(--blue)}
+.nav-ctas{display:flex;gap:10px;align-items:center}
+.btn-ghost{font-size:13px;font-weight:500;padding:8px 18px;border:1.5px solid var(--blue);color:var(--blue);background:transparent;border-radius:8px;transition:all .2s}
+.btn-ghost:hover{background:var(--blue-light)}
+.btn-primary{font-size:13px;font-weight:500;padding:8px 18px;border:none;color:white;background:var(--blue);border-radius:8px;transition:all .2s}
+.btn-primary:hover{background:var(--blue-dark)}
+.btn-lg{font-size:15px;padding:13px 28px;border-radius:10px}
+.btn-danger{background:var(--red);color:white;border:none;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:500}
+.btn-success{background:var(--green);color:white;border:none;border-radius:10px;padding:13px 28px;font-size:15px;font-weight:600}
 
-DNA-POWERED · VET-ALIGNED · AAFCO CERTIFIED
-Precision nutrition built on your dog's unique biology
-Upload DNA results or build a health profile — Pupsona's AI generates a clinically-grounded meal and supplement plan tailored to your dog's genetics, breed, and health conditions.
-Upload DNA Results
-How it works
-🐕🐩🦮🐶
-12,400+ dogs on Pupsona plans
-Trusted by pet owners nationwide · Rated 4.9/5
-HOW IT WORKS
-A clinical process. A simple experience.
-Pupsona translates complex genetic and health data into an actionable nutrition plan — no veterinary degree required. The science stays under the hood so you can focus on your dog.
-1
-Upload DNA or Build Profile
-Upload PDF, CSV, or TXT files from Embark, Wisdom Panel, DNA My Dog, or Orivet — or manually fill out our 5-step intake form covering breed, health, and lifestyle.
-2
-AI Runs the Analysis
-The model cross-references genetic markers, breed predispositions, and health data against AAFCO and NRC dietary guidelines to build a precise nutritional profile.
-3
-Receive Your Full Plan
-Daily caloric targets, macronutrient splits, ingredient recommendations, supplement dosages, foods to avoid, and a 7-day meal schedule — all organized in a clean results dashboard.
-RECOMMENDED
-Upload DNA Results
-Embark
-Wisdom Panel
-DNA My Dog
-Orivet
-Other
-Upload DNA Results →
-Build a Manual Profile
-350+ Breeds
-5-step wizard
-Under 2 min
-Start Manual Profile →
-PATIENT OUTCOMES
-Results dog owners can measure
-⭐⭐⭐⭐⭐
-4.9 stars — Based on 3,200+ reviews
-My Golden Retriever Biscuit had chronic skin issues for two years. Pupsona flagged a chicken sensitivity from his DNA results that three vets had missed. Within six weeks his coat completely transformed — no more hot spots, no more itching.
-6wk
-to visible improvement
-Sarah M.
-Charlottesville, VA · Golden Retriever owner
-Pupsona's supplement recommendations for my German Shepherd matched exactly what my vet had just prescribed. The plan even explained why each supplement was indicated.
-Marcus T.
-German Shepherd owner
-Mochi is a rescue mix and I had no idea what she needed. Using the manual profile, she gained healthy weight for the first time in her life.
-Priya K.
-Rescue mix owner
-I manage 11 Belgian Malinois individually. Each dog has a fully customized nutrition plan. This is the precision tool serious breeders have needed.
-Derek H.
-Belgian Malinois Breeder
-Pupsona
-Privacy
-Terms
-For Vets
-Research
-© 2025 Pupsona Inc. AAFCO Compliant.
+/* HERO */
+.hero{position:relative;min-height:90vh;display:flex;align-items:center;padding:80px 5vw;overflow:hidden}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 0%,transparent 100%);opacity:.5;pointer-events:none}
+.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;max-width:1200px;margin:0 auto;width:100%}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--blue);background:var(--blue-light);padding:5px 14px;border-radius:100px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:24px}
+.pulse-dot{width:7px;height:7px;border-radius:50%;background:var(--blue);animation:pulse 2s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(26,107,218,0.4)}50%{box-shadow:0 0 0 6px rgba(26,107,218,0)}}
+.hero h1{font-size:clamp(36px,4.5vw,58px);font-weight:800;line-height:1.08;letter-spacing:-1.5px;color:var(--navy);margin-bottom:22px}
+.blue-u{color:var(--blue);position:relative;display:inline}
+.blue-u::after{content:'';position:absolute;left:0;bottom:-4px;width:100%;height:3px;background:linear-gradient(90deg,var(--blue-light),var(--blue));border-radius:2px}
+.hero p{font-size:17px;line-height:1.75;color:var(--text-muted);max-width:500px;margin-bottom:36px}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
+.social-proof{display:flex;align-items:center;gap:14px}
+.avatars{display:flex}
+.avatar-pill{width:34px;height:34px;border-radius:50%;border:2.5px solid white;font-size:16px;display:flex;align-items:center;justify-content:center;background:var(--blue-light);margin-left:-10px}
+.avatar-pill:first-child{margin-left:0}
+.proof-text{font-size:13px;color:var(--text-muted);line-height:1.5}
+.proof-text strong{color:var(--text);font-weight:600}
+
+/* PLAN CARD (hero) */
+.plan-card-wrap{position:relative;display:flex;align-items:center;justify-content:center}
+.plan-card{background:white;border-radius:20px;box-shadow:0 4px 6px -1px rgba(0,0,0,0.07),0 24px 60px -10px rgba(11,31,58,0.15);width:100%;max-width:380px;overflow:hidden;border:1px solid var(--border)}
+.card-header-dark{background:var(--navy);padding:20px 20px 16px;color:white}
+.card-dog-row{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.dog-avatar-circle{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#4a90e2,#1a6bda);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.dog-info-txt h3{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:white;margin-bottom:2px}
+.dog-info-txt p{font-size:12px;color:rgba(255,255,255,0.6)}
+.dna-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(26,107,218,0.3);border:1px solid rgba(74,144,226,0.4);color:#7fbfff;padding:3px 10px;border-radius:100px;font-size:11px;font-weight:600}
+.card-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:16px}
+.stat-box{background:var(--gray-bg);border-radius:10px;padding:12px 14px}
+.stat-box .slabel{font-size:10px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.stat-box .sval{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--navy)}
+.stat-box .sunit{font-size:11px;color:var(--text-muted);font-weight:400}
+.card-section-inner{padding:0 16px 14px}
+.section-lbl{font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px}
+.macro-row{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.macro-name{font-size:12px;font-weight:500;color:var(--text);width:50px}
+.macro-track{flex:1;height:6px;background:#eef2f7;border-radius:3px;overflow:hidden}
+.macro-fill{height:100%;border-radius:3px}
+.macro-pct{font-size:12px;font-weight:600;color:var(--text);width:32px;text-align:right}
+.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:2px}
+.ptag{font-size:11px;font-weight:600;padding:3px 10px;border-radius:100px;background:var(--blue-light);color:var(--blue)}
+.ptag-avoid{background:#fef0f0;color:#c0392b;border:1px solid #fcd5d5}
+.card-div{height:1px;background:var(--border);margin:0 16px 14px}
+.supp-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid #f0f4f8}
+.supp-row:last-child{border-bottom:none}
+.supp-name{font-size:12px;font-weight:600;color:var(--text)}
+.supp-dose{font-size:11px;font-weight:500;color:var(--blue);background:var(--blue-light);padding:2px 8px;border-radius:100px}
+.chip-float{position:absolute;display:flex;align-items:center;gap:7px;background:white;border:1px solid var(--border);border-radius:100px;padding:6px 12px;font-size:11px;font-weight:500;color:var(--text);box-shadow:0 2px 12px rgba(0,0,0,0.08);white-space:nowrap}
+.chip-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.chip-green{background:#10b981}
+.chip-blue-dot{background:var(--blue)}
+.chip-tr{top:-20px;right:-24px}
+.chip-bl{bottom:-18px;left:-20px}
+
+/* HOW IT WORKS */
+.hiw{background:var(--gray-bg);padding:96px 5vw}
+.hiw-inner{max-width:1200px;margin:0 auto}
+.hiw-header{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:64px;align-items:end}
+.hiw-header h2{font-size:clamp(28px,3vw,42px);font-weight:800;letter-spacing:-1px;color:var(--navy);margin-top:12px;line-height:1.15}
+.steps{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-bottom:56px}
+.steps-line{position:absolute;top:26px;left:calc(50%/3);right:calc(50%/3);height:2px;background:linear-gradient(90deg,var(--blue) 60%,var(--border) 60%);z-index:0}
+.step{position:relative;z-index:1}
+.step-num{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:16px;font-weight:800;margin-bottom:20px;border:2px solid var(--border);background:white;color:var(--text-muted)}
+.step-num.active{background:var(--blue);color:white;border-color:var(--blue)}
+.step h3{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:10px}
+.step p{font-size:14px;line-height:1.7;color:var(--text-muted)}
+.path-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.path-card{background:white;border-radius:16px;padding:28px;border:1.5px solid var(--border)}
+.path-card.featured{border-color:var(--blue);position:relative;overflow:hidden}
+.path-card.featured::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--blue)}
+.feat-badge{display:inline-block;font-size:11px;font-weight:700;color:var(--blue);background:var(--blue-light);padding:3px 10px;border-radius:100px;margin-bottom:12px;text-transform:uppercase;letter-spacing:.4px}
+.path-card h3{font-family:'Syne',sans-serif;font-size:19px;font-weight:700;color:var(--navy);margin-bottom:14px}
+.provider-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.pchip{font-size:12px;font-weight:500;padding:4px 12px;border-radius:100px;background:var(--gray-bg);color:var(--text-muted);border:1px solid var(--border)}
+.pchip-blue{background:var(--blue-light);color:var(--blue);border-color:rgba(26,107,218,0.2)}
+
+/* TESTIMONIALS */
+.testi{background:var(--navy);padding:96px 5vw}
+.testi-inner{max-width:1200px;margin:0 auto}
+.testi-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:16px}
+.testi-header h2{font-size:clamp(28px,3vw,42px);font-weight:800;letter-spacing:-1px;color:white;margin-top:12px}
+.testi-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.07);padding:5px 14px;border-radius:100px;letter-spacing:.5px;text-transform:uppercase}
+.rating-block{text-align:right}
+.stars{font-size:18px;margin-bottom:4px}
+.rating-block p{font-size:13px;color:rgba(255,255,255,0.5)}
+.testi-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px}
+.tcard{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:28px}
+.tcard.featured{grid-column:1;grid-row:1/3;display:flex;flex-direction:column;justify-content:space-between;background:rgba(26,107,218,0.15);border-color:rgba(26,107,218,0.3)}
+.tcard .quote{font-size:16px;line-height:1.75;color:rgba(255,255,255,0.85);font-style:italic;flex:1}
+.tcard .quote::before{content:'"';font-family:'Syne',sans-serif;font-size:48px;line-height:0;vertical-align:-18px;color:rgba(255,255,255,0.2);display:inline;margin-right:4px}
+.tcard-footer{margin-top:20px}
+.reviewer{font-size:13px;font-weight:600;color:white;margin-bottom:2px}
+.reviewer-sub{font-size:12px;color:rgba(255,255,255,0.4)}
+.stat-highlight{background:rgba(255,255,255,0.08);border-radius:10px;padding:14px 18px;margin-top:16px}
+.stat-num{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:white}
+.stat-desc{font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px}
+.tcard .tq{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.75);font-style:italic;margin-bottom:16px}
+.tcard .tq::before{content:'"';font-size:36px;line-height:0;vertical-align:-14px;color:rgba(255,255,255,0.15);display:inline}
+
+/* AUTH MODALS */
+.modal-overlay{display:none;position:fixed;inset:0;z-index:1000;background:rgba(11,31,58,0.8);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+.modal{background:white;border-radius:20px;padding:40px;width:100%;max-width:440px;position:relative;box-shadow:0 32px 80px rgba(0,0,0,0.3);max-height:90vh;overflow-y:auto}
+.modal-close{position:absolute;top:16px;right:16px;background:none;border:none;cursor:pointer;font-size:20px;color:var(--text-muted);line-height:1;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.modal-close:hover{background:var(--gray-bg)}
+.modal h2{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:var(--navy);margin-bottom:6px}
+.modal p.sub{font-size:14px;color:var(--text-muted);margin-bottom:28px}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:13px;font-weight:600;color:var(--text);margin-bottom:7px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:9px;font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;color:var(--text);background:white}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--blue)}
+.form-group textarea{resize:vertical;min-height:80px}
+.form-actions{margin-top:24px}
+.form-actions button{width:100%;padding:13px;font-size:15px;font-weight:600;border:none;background:var(--blue);color:white;border-radius:10px;cursor:pointer;transition:background .2s}
+.form-actions button:hover{background:var(--blue-dark)}
+.forgot{font-size:12px;color:var(--blue);cursor:pointer;display:block;text-align:right;margin-bottom:12px}
+.modal-toggle{text-align:center;margin-top:20px;font-size:13px;color:var(--text-muted)}
+.modal-toggle a{color:var(--blue);font-weight:600;cursor:pointer}
+.error-msg{background:#fff5f5;border:1px solid #fcd5d5;color:#c0392b;padding:10px 14px;border-radius:8px;font-size:13px;margin-bottom:16px;display:none}
+.error-msg.show{display:block}
+.success-msg{background:var(--success-bg);border:1px solid var(--success-border);color:#166534;padding:10px 14px;border-radius:8px;font-size:13px;margin-bottom:16px;display:none}
+.success-msg.show{display:block}
+
+/* ONBOARDING WIZARD */
+.wizard-page{background:var(--gray-bg);min-height:100vh;padding:40px 5vw}
+.wizard-inner{max-width:760px;margin:0 auto}
+.wizard-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:var(--navy);margin-bottom:40px;cursor:pointer}
+.wizard-logo span{color:var(--blue)}
+.progress-bar-wrap{margin-bottom:40px}
+.progress-label{display:flex;justify-content:space-between;font-size:12px;color:var(--text-muted);font-weight:500;margin-bottom:8px}
+.progress-track{height:6px;background:var(--border);border-radius:3px;overflow:hidden}
+.progress-fill{height:100%;background:var(--blue);border-radius:3px;transition:width .4s ease}
+.wizard-card{background:white;border-radius:20px;padding:40px;border:1px solid var(--border);box-shadow:0 2px 20px rgba(0,0,0,0.04)}
+.wizard-card h2{font-size:26px;font-weight:800;color:var(--navy);margin-bottom:8px;letter-spacing:-.5px}
+.wizard-card .step-desc{font-size:15px;color:var(--text-muted);margin-bottom:32px;line-height:1.6}
+.wizard-nav{display:flex;gap:12px;margin-top:32px;justify-content:space-between}
+.wizard-step{display:none}
+.wizard-step.active{display:block}
+
+/* Entry method cards */
+.entry-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:8px}
+.entry-card{border:2px solid var(--border);border-radius:14px;padding:24px;cursor:pointer;transition:all .2s;background:white}
+.entry-card:hover{border-color:var(--blue-mid);background:var(--blue-light)}
+.entry-card.selected{border-color:var(--blue);background:var(--blue-light)}
+.entry-card .ec-icon{font-size:32px;margin-bottom:12px}
+.entry-card h3{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.entry-card p{font-size:13px;color:var(--text-muted);line-height:1.5}
+
+/* Form widgets */
+.radio-group{display:flex;gap:8px;flex-wrap:wrap}
+.radio-btn{padding:9px 18px;border:1.5px solid var(--border);border-radius:8px;cursor:pointer;font-size:13px;font-weight:500;color:var(--text-muted);transition:all .2s;background:white;user-select:none}
+.radio-btn:hover{border-color:var(--blue-mid);color:var(--blue)}
+.radio-btn.selected{border-color:var(--blue);background:var(--blue-light);color:var(--blue)}
+.tag-select{display:flex;flex-wrap:wrap;gap:8px}
+.tag-opt{padding:7px 14px;border:1.5px solid var(--border);border-radius:100px;cursor:pointer;font-size:13px;font-weight:500;color:var(--text-muted);transition:all .2s;user-select:none;background:white}
+.tag-opt:hover{border-color:var(--blue-mid)}
+.tag-opt.selected{border-color:var(--blue);background:var(--blue-light);color:var(--blue)}
+.slider-wrap{margin-top:8px}
+.slider-wrap input[type=range]{width:100%;accent-color:var(--blue)}
+.slider-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--text-muted);margin-top:4px}
+.slider-val{font-family:'Syne',sans-serif;font-size:24px;font-weight:700;color:var(--blue);text-align:center;margin-bottom:4px}
+.weight-toggle{display:flex;gap:0;border:1.5px solid var(--border);border-radius:8px;overflow:hidden;width:fit-content;margin-bottom:10px}
+.weight-toggle button{padding:7px 16px;border:none;background:white;font-size:13px;font-weight:500;color:var(--text-muted);cursor:pointer;transition:all .2s}
+.weight-toggle button.active{background:var(--blue);color:white}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.file-drop{border:2px dashed var(--border);border-radius:12px;padding:40px;text-align:center;cursor:pointer;transition:all .2s;background:white}
+.file-drop:hover{border-color:var(--blue);background:var(--blue-light)}
+.file-drop .fd-icon{font-size:40px;margin-bottom:12px}
+.file-drop p{font-size:14px;color:var(--text-muted)}
+.file-drop small{font-size:12px;color:var(--text-muted);display:block;margin-top:6px}
+.file-drop.has-file{border-color:var(--green);background:var(--success-bg)}
+.breed-search{position:relative}
+.breed-search input{width:100%}
+.breed-dropdown{position:absolute;top:100%;left:0;right:0;background:white;border:1.5px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.1);z-index:50;max-height:220px;overflow-y:auto;display:none}
+.breed-dropdown.open{display:block}
+.breed-opt{padding:10px 14px;cursor:pointer;font-size:14px;transition:background .15s}
+.breed-opt:hover{background:var(--blue-light);color:var(--blue)}
+.section-divider{height:1px;background:var(--border);margin:24px 0}
+.field-label{font-size:13px;font-weight:600;color:var(--text);margin-bottom:8px;display:block}
+
+/* DASHBOARD */
+.dashboard-page{background:var(--gray-bg);min-height:100vh}
+.dash-nav{background:white;border-bottom:1px solid var(--border);padding:0 5vw;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:50}
+.dash-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:var(--navy);cursor:pointer}
+.dash-logo span{color:var(--blue)}
+.user-menu{display:flex;align-items:center;gap:16px}
+.user-avatar{width:36px;height:36px;border-radius:50%;background:var(--blue);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;font-family:'Syne',sans-serif}
+.user-name{font-size:14px;font-weight:500;color:var(--text)}
+.dash-content{max-width:1100px;margin:0 auto;padding:48px 5vw}
+.dash-welcome{margin-bottom:40px}
+.dash-welcome h1{font-size:32px;font-weight:800;color:var(--navy);letter-spacing:-.5px;margin-bottom:6px}
+.dash-welcome p{font-size:15px;color:var(--text-muted)}
+.dogs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-bottom:32px}
+.dog-card{background:white;border-radius:16px;border:1px solid var(--border);overflow:hidden;transition:box-shadow .2s}
+.dog-card:hover{box-shadow:0 8px 32px rgba(0,0,0,0.08)}
+.dog-card-header{background:var(--navy);padding:20px;display:flex;align-items:center;gap:14px}
+.dog-card-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#4a90e2,#1a6bda);display:flex;align-items:center;justify-content:center;font-size:26px}
+.dog-card-info h3{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:white;margin-bottom:2px}
+.dog-card-info p{font-size:13px;color:rgba(255,255,255,0.6)}
+.dog-card-body{padding:20px}
+.dog-chip-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.dog-chip{font-size:11px;font-weight:600;padding:3px 10px;border-radius:100px;background:var(--blue-light);color:var(--blue)}
+.dog-chip.red{background:#fef0f0;color:var(--red)}
+.dog-chip.green{background:var(--success-bg);color:#166534}
+.dog-card-actions{display:flex;gap:8px;flex-wrap:wrap}
+.dog-card-actions button{flex:1;padding:9px;border-radius:8px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:white;color:var(--text);transition:all .2s;min-width:100px}
+.dog-card-actions button:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-light)}
+.dog-card-actions .btn-view{background:var(--blue);color:white;border-color:var(--blue)}
+.dog-card-actions .btn-view:hover{background:var(--blue-dark)}
+.quick-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px}
+.qs-card{background:white;border:1px solid var(--border);border-radius:12px;padding:20px}
+.qs-card .qs-label{font-size:12px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px}
+.qs-card .qs-val{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:var(--navy)}
+.qs-card .qs-sub{font-size:12px;color:var(--text-muted);margin-top:2px}
+.add-dog-card{border:2px dashed var(--border);border-radius:16px;padding:40px;text-align:center;cursor:pointer;transition:all .2s}
+.add-dog-card:hover{border-color:var(--blue);background:var(--blue-light)}
+.add-dog-card .add-icon{font-size:36px;margin-bottom:12px}
+.add-dog-card h3{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.add-dog-card p{font-size:13px;color:var(--text-muted)}
+.plan-history{background:white;border-radius:16px;border:1px solid var(--border);padding:24px;margin-top:32px}
+.plan-history h3{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--navy);margin-bottom:16px}
+.history-item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--border)}
+.history-item:last-child{border-bottom:none}
+.hi-dog{font-weight:600;font-size:14px;color:var(--text)}
+.hi-date{font-size:12px;color:var(--text-muted);margin-top:2px}
+.hi-badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:100px;background:var(--success-bg);color:#166534}
+.empty-state{text-align:center;padding:60px 20px}
+.empty-state .es-icon{font-size:64px;margin-bottom:16px}
+.empty-state h3{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.empty-state p{font-size:15px;color:var(--text-muted);max-width:360px;margin:0 auto 24px}
+
+/* PLAN PAGE */
+.plan-page{background:var(--gray-bg);min-height:100vh}
+.plan-content{max-width:1000px;margin:0 auto;padding:48px 5vw}
+.plan-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:40px;flex-wrap:wrap;gap:16px}
+.plan-header h1{font-size:28px;font-weight:800;color:var(--navy);margin-bottom:4px}
+.plan-header .sub{font-size:14px;color:var(--text-muted)}
+.plan-header-actions{display:flex;gap:10px;flex-wrap:wrap}
+.plan-tabs{display:flex;gap:0;border:1px solid var(--border);border-radius:10px;background:white;overflow:hidden;margin-bottom:32px;width:fit-content;flex-wrap:wrap}
+.plan-tab{padding:10px 20px;border:none;background:white;font-size:14px;font-weight:500;color:var(--text-muted);cursor:pointer;transition:all .2s;border-right:1px solid var(--border)}
+.plan-tab:last-child{border-right:none}
+.plan-tab.active{background:var(--blue);color:white}
+.plan-panel{display:none}
+.plan-panel.active{display:block}
+.plan-section{background:white;border-radius:16px;border:1px solid var(--border);padding:28px;margin-bottom:20px}
+.plan-section h3{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--navy);margin-bottom:16px}
+.calorie-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.calorie-box{border-radius:12px;padding:24px;text-align:center}
+.calorie-box.rer{background:var(--blue-light)}
+.calorie-box.mer{background:var(--navy)}
+.calorie-box .cb-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.calorie-box.rer .cb-label{color:var(--blue)}
+.calorie-box.mer .cb-label{color:rgba(255,255,255,0.5)}
+.calorie-box .cb-val{font-family:'Syne',sans-serif;font-size:40px;font-weight:800}
+.calorie-box.rer .cb-val{color:var(--navy)}
+.calorie-box.mer .cb-val{color:white}
+.calorie-box .cb-unit{font-size:14px;color:var(--text-muted);margin-top:4px}
+.calorie-box.mer .cb-unit{color:rgba(255,255,255,0.5)}
+.macro-vis{display:grid;grid-template-columns:1fr 2fr;gap:24px;align-items:center}
+.donut-wrap{position:relative;width:140px;height:140px;margin:0 auto}
+.donut-svg{transform:rotate(-90deg)}
+.donut-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Syne',sans-serif}
+.macro-list .ml-row{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.ml-dot{width:12px;height:12px;border-radius:3px;flex-shrink:0}
+.ml-name{font-size:14px;font-weight:600;color:var(--text);flex:1}
+.ml-pct{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--navy)}
+.food-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.food-card{border:1px solid var(--border);border-radius:12px;padding:16px}
+.food-card .fc-icon{font-size:24px;margin-bottom:8px}
+.food-card .fc-name{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.food-card .fc-cat{font-size:11px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.3px;margin-bottom:8px}
+.food-card .fc-benefit{font-size:12px;color:var(--text-muted);line-height:1.5;margin-bottom:8px}
+.food-card .fc-amount{font-size:11px;font-weight:600;color:var(--text);background:var(--gray-bg);padding:3px 8px;border-radius:6px;display:inline-block}
+.avoid-card{border:1.5px solid #fcd5d5;border-radius:12px;padding:16px;background:#fff5f5}
+.avoid-card .av-name{font-size:14px;font-weight:700;color:var(--red);margin-bottom:6px}
+.avoid-card .av-reason{font-size:13px;color:#7f1d1d;line-height:1.5}
+.avoid-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.supp-list .supp-item{border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.supp-item .si-info h4{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.supp-item .si-info p{font-size:13px;color:var(--text-muted)}
+.supp-item .si-dose{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--blue);white-space:nowrap}
+.meal-table{width:100%;border-collapse:collapse;font-size:14px}
+.meal-table th{background:var(--gray-bg);padding:10px 14px;text-align:left;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--text-muted);border-bottom:2px solid var(--border)}
+.meal-table td{padding:12px 14px;border-bottom:1px solid var(--border);vertical-align:top}
+.meal-table tr:last-child td{border-bottom:none}
+.meal-table .day{font-weight:700;color:var(--navy)}
+.meal-text{font-size:13px;color:var(--text);line-height:1.5}
+.insight-table{width:100%;border-collapse:collapse;font-size:14px}
+.insight-table th{background:var(--navy);color:white;padding:10px 14px;text-align:left;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.4px}
+.insight-table td{padding:11px 14px;border-bottom:1px solid var(--border)}
+.insight-table tr:hover td{background:var(--blue-light)}
+.flag-high{color:var(--red);font-weight:600;font-size:12px;background:#fef0f0;padding:2px 8px;border-radius:6px}
+.flag-low{color:#92400e;font-weight:600;font-size:12px;background:#fffbeb;padding:2px 8px;border-radius:6px}
+.flag-normal{color:#166534;font-weight:600;font-size:12px;background:var(--success-bg);padding:2px 8px;border-radius:6px}
+
+/* LOADING */
+.loading-overlay{display:none;position:fixed;inset:0;z-index:2000;background:rgba(11,31,58,0.85);backdrop-filter:blur(10px);align-items:center;justify-content:center;flex-direction:column;gap:24px}
+.loading-overlay.open{display:flex}
+.spinner{width:56px;height:56px;border:3px solid rgba(255,255,255,0.2);border-top-color:white;border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-text{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:white}
+.loading-sub{font-size:14px;color:rgba(255,255,255,0.5);margin-top:-16px}
+
+/* Plan raw output */
+.plan-raw{background:white;border-radius:16px;border:1px solid var(--border);padding:28px;white-space:pre-wrap;font-size:14px;line-height:1.8;color:var(--text);font-family:'Inter',sans-serif}
+
+/* FOOTER */
+footer{background:var(--navy-mid);padding:40px 5vw;border-top:1px solid rgba(255,255,255,0.06)}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:18px;color:white}
+.footer-logo span{color:var(--blue-mid)}
+.footer-copy{font-size:13px;color:rgba(255,255,255,0.3)}
+.footer-links{display:flex;gap:24px}
+.footer-links a{font-size:13px;color:rgba(255,255,255,0.4);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:rgba(255,255,255,0.7)}
+
+/* NOTIFICATION */
+.notif{position:fixed;top:80px;right:24px;z-index:999;background:var(--navy);color:white;padding:14px 20px;border-radius:12px;font-size:14px;font-weight:500;box-shadow:0 8px 32px rgba(0,0,0,0.2);transform:translateX(120%);transition:transform .3s;max-width:320px}
+.notif.show{transform:translateX(0)}
+.notif.success-notif{background:#166534}
+.notif.error-notif{background:#991b1b}
+
+@media(max-width:900px){
+  .hero-inner,.hiw-header,.form-row,.calorie-row,.macro-vis{grid-template-columns:1fr}
+  .plan-card-wrap{display:none}
+  .steps,.path-cards,.testi-grid,.dogs-grid,.quick-stats,.entry-cards{grid-template-columns:1fr}
+  .steps-line{display:none}
+  .tcard.featured{grid-column:1;grid-row:auto}
+  .plan-tabs{width:100%}
+}
+</style>
+</head>
+<body>
+
+<!-- LOADING -->
+<div class="loading-overlay" id="loading">
+  <div class="spinner"></div>
+  <div class="loading-text">Generating your plan...</div>
+  <div class="loading-sub">Analyzing genetic markers and health data</div>
+</div>
+
+<!-- NOTIFICATION -->
+<div class="notif" id="notif"></div>
+
+<!-- ==================== LANDING PAGE ==================== -->
+<div class="page active" id="page-landing">
+  <nav>
+    <div class="nav-logo" onclick="showPage('landing')">Pup<span>sona</span></div>
+    <ul class="nav-links">
+      <li><a onclick="document.getElementById('hiw-section').scrollIntoView({behavior:'smooth'})">How It Works</a></li>
+      <li><a>For Vets</a></li>
+      <li><a>Pricing</a></li>
+    </ul>
+    <div class="nav-ctas">
+      <button class="btn-ghost" onclick="openModal('login')">Log In</button>
+      <button class="btn-primary" onclick="openModal('signup')">Get Started</button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow"><span class="pulse-dot"></span> DNA-Powered · Vet-Aligned · AAFCO Certified</div>
+        <h1>Precision nutrition built on your dog's <span class="blue-u">unique biology</span></h1>
+        <p>Upload DNA results or build a health profile — Pupsona's AI generates a clinically-grounded meal and supplement plan tailored to your dog's genetics, breed, and health conditions.</p>
+        <div class="hero-ctas">
+          <button class="btn-primary btn-lg" onclick="openModal('signup')">Upload DNA Results</button>
+          <button class="btn-ghost btn-lg" onclick="document.getElementById('hiw-section').scrollIntoView({behavior:'smooth'})">How it works</button>
+        </div>
+        <div class="social-proof">
+          <div class="avatars">
+            <div class="avatar-pill">🐕</div><div class="avatar-pill">🐩</div><div class="avatar-pill">🦮</div><div class="avatar-pill">🐶</div>
+          </div>
+          <div class="proof-text"><strong>12,400+ dogs on Pupsona plans</strong><br>Trusted by pet owners nationwide · Rated 4.9/5</div>
+        </div>
+      </div>
+      <div class="plan-card-wrap">
+        <div class="chip-float chip-tr"><div class="chip-dot chip-green"></div> Embark DNA Processed — 32 genetic markers analyzed</div>
+        <div class="plan-card">
+          <div class="card-header-dark">
+            <div class="card-dog-row">
+              <div class="dog-avatar-circle">🐕</div>
+              <div class="dog-info-txt"><h3>Biscuit</h3><p>Golden Retriever · 4 yrs · 68 lbs</p></div>
+            </div>
+            <div class="dna-badge">✦ DNA Verified</div>
+          </div>
+          <div class="card-stats">
+            <div class="stat-box"><div class="slabel">RER</div><div class="sval">892 <span class="sunit">kcal/day</span></div></div>
+            <div class="stat-box"><div class="slabel">MER</div><div class="sval">1,427 <span class="sunit">kcal/day</span></div></div>
+          </div>
+          <div class="card-section-inner">
+            <div class="section-lbl">Macronutrient Targets</div>
+            <div class="macro-row"><span class="macro-name">Protein</span><div class="macro-track"><div class="macro-fill" style="width:34%;background:#1a6bda"></div></div><span class="macro-pct">34%</span></div>
+            <div class="macro-row"><span class="macro-name">Fat</span><div class="macro-track"><div class="macro-fill" style="width:28%;background:#4a90e2"></div></div><span class="macro-pct">28%</span></div>
+            <div class="macro-row"><span class="macro-name">Carbs</span><div class="macro-track"><div class="macro-fill" style="width:38%;background:#a8c8f5"></div></div><span class="macro-pct">38%</span></div>
+          </div>
+          <div class="card-section-inner">
+            <div class="section-lbl">Protein Sources</div>
+            <div class="tag-row"><span class="ptag">Salmon</span><span class="ptag">Turkey</span><span class="ptag">Venison</span><span class="ptag ptag-avoid">⚠ Avoid Chicken</span></div>
+          </div>
+          <div class="card-div"></div>
+          <div class="card-section-inner">
+            <div class="section-lbl">Supplements</div>
+            <div class="supp-row"><span class="supp-name">Omega-3</span><span class="supp-dose">1,000 mg/day</span></div>
+            <div class="supp-row"><span class="supp-name">Glucosamine</span><span class="supp-dose">500 mg/day</span></div>
+            <div class="supp-row" style="border:none"><span class="supp-name">Probiotics</span><span class="supp-dose">1 capsule/day</span></div>
+          </div>
+        </div>
+        <div class="chip-float chip-bl"><div class="chip-dot chip-blue-dot"></div> Plan Generated — 7-day meal plan ready</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hiw" id="hiw-section">
+    <div class="hiw-inner">
+      <div class="hiw-header">
+        <div>
+          <div class="eyebrow" style="background:rgba(26,107,218,0.08)">How It Works</div>
+          <h2>A clinical process.<br>A simple experience.</h2>
+        </div>
+        <p style="font-size:16px;line-height:1.75;color:var(--text-muted)">Pupsona translates complex genetic and health data into an actionable nutrition plan — no veterinary degree required. The science stays under the hood so you can focus on your dog.</p>
+      </div>
+      <div class="steps">
+        <div class="steps-line"></div>
+        <div class="step"><div class="step-num">1</div><h3>Upload DNA or Build Profile</h3><p>Upload PDF, CSV, or TXT files from Embark, Wisdom Panel, DNA My Dog, or Orivet — or manually fill out our 5-step intake form covering breed, health, and lifestyle.</p></div>
+        <div class="step"><div class="step-num active">2</div><h3>AI Runs the Analysis</h3><p>The model cross-references genetic markers, breed predispositions, and health data against AAFCO and NRC dietary guidelines to build a precise nutritional profile.</p></div>
+        <div class="step"><div class="step-num">3</div><h3>Receive Your Full Plan</h3><p>Daily caloric targets, macronutrient splits, ingredient recommendations, supplement dosages, foods to avoid, and a 7-day meal schedule — all organized in a clean results dashboard.</p></div>
+      </div>
+      <div class="path-cards">
+        <div class="path-card featured">
+          <div class="feat-badge">Recommended</div>
+          <h3>Upload DNA Results</h3>
+          <div class="provider-chips">
+            <span class="pchip pchip-blue">Embark</span><span class="pchip pchip-blue">Wisdom Panel</span><span class="pchip pchip-blue">DNA My Dog</span><span class="pchip pchip-blue">Orivet</span><span class="pchip">Other</span>
+          </div>
+          <button class="btn-primary" onclick="openModal('signup')">Upload DNA Results →</button>
+        </div>
+        <div class="path-card">
+          <h3>Build a Manual Profile</h3>
+          <div class="provider-chips">
+            <span class="pchip">350+ Breeds</span><span class="pchip">5-step wizard</span><span class="pchip">Under 2 min</span>
+          </div>
+          <button class="btn-ghost" onclick="openModal('signup')">Start Manual Profile →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testi">
+    <div class="testi-inner">
+      <div class="testi-header">
+        <div><div class="testi-eyebrow">Patient Outcomes</div><h2>Results dog owners can measure</h2></div>
+        <div class="rating-block"><div class="stars">⭐⭐⭐⭐⭐</div><p>4.9 stars — Based on 3,200+ reviews</p></div>
+      </div>
+      <div class="testi-grid">
+        <div class="tcard featured">
+          <div><p class="quote">My Golden Retriever Biscuit had chronic skin issues for two years. Pupsona flagged a chicken sensitivity from his DNA results that three vets had missed. Within six weeks his coat completely transformed — no more hot spots, no more itching.</p></div>
+          <div><div class="stat-highlight"><div class="stat-num">6wk</div><div class="stat-desc">to visible improvement</div></div><div class="tcard-footer" style="margin-top:16px"><div class="reviewer">Sarah M.</div><div class="reviewer-sub">Charlottesville, VA · Golden Retriever owner</div></div></div>
+        </div>
+        <div class="tcard"><p class="tq">Pupsona's supplement recommendations for my German Shepherd matched exactly what my vet had just prescribed. The plan even explained why each supplement was indicated.</p><div class="tcard-footer"><div class="reviewer">Marcus T.</div><div class="reviewer-sub">German Shepherd owner</div></div></div>
+        <div class="tcard"><p class="tq">Mochi is a rescue mix and I had no idea what she needed. Using the manual profile, she gained healthy weight for the first time in her life.</p><div class="tcard-footer"><div class="reviewer">Priya K.</div><div class="reviewer-sub">Rescue mix owner</div></div></div>
+        <div class="tcard"><p class="tq">I manage 11 Belgian Malinois individually. Each dog has a fully customized nutrition plan. This is the precision tool serious breeders have needed.</p><div class="tcard-footer"><div class="reviewer">Derek H.</div><div class="reviewer-sub">Belgian Malinois Breeder</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer><div class="footer-inner">
+    <div class="footer-logo">Pup<span>sona</span></div>
+    <div class="footer-links"><a>Privacy</a><a>Terms</a><a>For Vets</a><a>Research</a></div>
+    <div class="footer-copy">© 2025 Pupsona Inc. AAFCO Compliant.</div>
+  </div></footer>
+</div>
+
+<!-- ==================== SIGN UP MODAL ==================== -->
+<div class="modal-overlay" id="signup-modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('signup')">✕</button>
+    <h2>Create your account</h2>
+    <p class="sub">Start your dog's personalized nutrition plan today.</p>
+    <div class="error-msg" id="signup-error"></div>
+    <div class="form-group"><label>First Name</label><input type="text" id="su-fname" placeholder="e.g. Sarah"></div>
+    <div class="form-group"><label>Last Name</label><input type="text" id="su-lname" placeholder="e.g. Mitchell"></div>
+    <div class="form-group"><label>Email Address</label><input type="email" id="su-email" placeholder="you@example.com"></div>
+    <div class="form-group"><label>Password</label><input type="password" id="su-password" placeholder="At least 6 characters"></div>
+    <div class="form-group"><label>Confirm Password</label><input type="password" id="su-confirm" placeholder="Repeat your password"></div>
+    <div class="form-actions"><button onclick="doSignup()">Create Account →</button></div>
+    <div class="modal-toggle">Already have an account? <a onclick="switchModal('signup','login')">Log in</a></div>
+  </div>
+</div>
+
+<!-- ==================== LOGIN MODAL ==================== -->
+<div class="modal-overlay" id="login-modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('login')">✕</button>
+    <h2>Welcome back</h2>
+    <p class="sub">Log in to view your dog's nutrition plan.</p>
+    <div class="error-msg" id="login-error"></div>
+    <div class="form-group"><label>Email Address</label><input type="email" id="li-email" placeholder="you@example.com"></div>
+    <div class="form-group"><label>Password</label><input type="password" id="li-password" placeholder="Your password"></div>
+    <span class="forgot">Forgot password?</span>
+    <div class="form-actions"><button onclick="doLogin()">Log In →</button></div>
+    <div class="modal-toggle">Don't have an account? <a onclick="switchModal('login','signup')">Sign up</a></div>
+  </div>
+</div>
+
+<!-- ==================== ONBOARDING WIZARD ==================== -->
+<div class="page" id="page-wizard">
+  <div class="wizard-page">
+    <div class="wizard-inner">
+      <div class="wizard-logo" onclick="showPage('landing')">Pup<span>sona</span></div>
+      <div class="progress-bar-wrap">
+        <div class="progress-label"><span id="wiz-step-label">Step 1 of 5</span><span id="wiz-step-name">Choose Entry Method</span></div>
+        <div class="progress-track"><div class="progress-fill" id="wiz-progress" style="width:20%"></div></div>
+      </div>
+      <div class="wizard-card">
+        <!-- STEP 1: Entry method -->
+        <div class="wizard-step active" id="wstep-1">
+          <h2>How would you like to start?</h2>
+          <p class="step-desc">Choose how you want to build your dog's nutritional profile. DNA uploads produce more precise results.</p>
+          <div class="entry-cards">
+            <div class="entry-card" id="ec-dna" onclick="selectEntry('dna')">
+              <div class="ec-icon">🧬</div>
+              <h3>I Have DNA Test Results</h3>
+              <p>Upload a file from Embark, Wisdom Panel, DNA My Dog, or Orivet for the most precise plan.</p>
+            </div>
+            <div class="entry-card" id="ec-manual" onclick="selectEntry('manual')">
+              <div class="ec-icon">📋</div>
+              <h3>I'll Enter My Dog's Info</h3>
+              <p>Complete our 5-step health and lifestyle intake form. Takes under 2 minutes.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2: Basic profile -->
+        <div class="wizard-step" id="wstep-2">
+          <h2>Your dog's basic profile</h2>
+          <p class="step-desc">Tell us about your dog's fundamentals — breed, age, weight, and activity level.</p>
+          <div class="form-row">
+            <div class="form-group"><label>Dog's Name</label><input type="text" id="w-dogname" placeholder="e.g. Biscuit"></div>
+            <div class="form-group">
+              <label>Sex</label>
+              <div class="radio-group" style="margin-top:4px">
+                <span class="radio-btn" onclick="selectRadio('w-sex',this,'Male')">Male</span>
+                <span class="radio-btn" onclick="selectRadio('w-sex',this,'Female')">Female</span>
+                <span class="radio-btn" onclick="selectRadio('w-sex',this,'Neutered')">Neutered</span>
+                <span class="radio-btn" onclick="selectRadio('w-sex',this,'Spayed')">Spayed</span>
+              </div>
+              <input type="hidden" id="w-sex" value="">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Breed</label>
+            <div class="breed-search">
+              <input type="text" id="w-breed-input" placeholder="Search breed..." oninput="filterBreeds(this.value)" onfocus="openBreedDD()" autocomplete="off">
+              <input type="hidden" id="w-breed" value="">
+              <div class="breed-dropdown" id="breed-dd"></div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Age</label>
+              <div style="display:flex;gap:8px;align-items:center">
+                <input type="number" id="w-age" placeholder="4" min="0" style="flex:1">
+                <div class="weight-toggle" style="margin:0">
+                  <button id="age-unit-weeks" onclick="selectAgeUnit('weeks')">Weeks</button>
+                  <button id="age-unit-months" onclick="selectAgeUnit('months')">Months</button>
+                  <button id="age-unit-years" class="active" onclick="selectAgeUnit('years')">Years</button>
+                </div>
+              </div>
+              <input type="hidden" id="w-age-unit" value="years">
+            </div>
+            <div class="form-group">
+              <label>Weight</label>
+              <div style="display:flex;gap:8px;align-items:center">
+                <input type="number" id="w-weight" placeholder="68" min="0" style="flex:1">
+                <div class="weight-toggle" style="margin:0">
+                  <button id="wt-lbs" class="active" onclick="selectWeightUnit('lbs')">lbs</button>
+                  <button id="wt-kg" onclick="selectWeightUnit('kg')">kg</button>
+                </div>
+              </div>
+              <input type="hidden" id="w-weight-unit" value="lbs">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Body Condition Score (1–9)</label>
+            <div class="slider-wrap">
+              <div class="slider-val" id="bcs-val">5</div>
+              <input type="range" min="1" max="9" value="5" id="w-bcs" oninput="document.getElementById('bcs-val').textContent=this.value">
+              <div class="slider-labels"><span>1 — Very Thin</span><span>5 — Ideal</span><span>9 — Obese</span></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Activity Level</label>
+            <select id="w-activity">
+              <option value="">Select activity level</option>
+              <option value="Sedentary">Sedentary (mostly indoor, minimal exercise)</option>
+              <option value="Lightly Active">Lightly Active (short walks daily)</option>
+              <option value="Moderately Active">Moderately Active (1–2 hrs/day)</option>
+              <option value="Highly Active">Highly Active (2+ hrs/day, athletic)</option>
+              <option value="Working Dog">Working Dog (herding, service, sport)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- STEP 3: Health -->
+        <div class="wizard-step" id="wstep-3">
+          <h2>Health & medical history</h2>
+          <p class="step-desc">This information directly shapes which ingredients and supplements are recommended or avoided.</p>
+          <label class="field-label">Known Food Allergies</label>
+          <div class="tag-select" id="ts-allergies" style="margin-bottom:20px">
+            <span class="tag-opt" onclick="toggleTag(this,'allergies')">Chicken</span>
+            <span class="tag-opt" onclick="toggleTag(this,'allergies')">Beef</span>
+            <span class="tag-opt" onclick="toggleTag(this,'allergies')">Lamb</span>
+            <span class="tag-opt" onclick="toggleTag(this,'allergies')">Pork</span>
+            <span class="tag-opt" onclick="toggleTag(this,'allergies')">Fish</span>
+            <span class="tag-opt" onclick="toggleTag(this,'allergies')">Shellfish</span>
+            <span class="tag-opt" onclick="toggleTag(this,'allergies')">Dairy</span>
+            <span class="tag-opt" onclick="toggleTag(this,'allergies')">Eggs</span>
+            <span class="tag-opt" onclick="toggleTag(this,'allergies')">Wheat</span>
+            <span class="tag-opt" onclick="toggleTag(this,'allergies')">Corn</span>
+            <span class="tag-opt" onclick="toggleTag(this,'allergies')">Soy</span>
+            <span class="tag-opt" onclick="toggleTag(this,'allergies')">None</span>
+          </div>
+          <div class="section-divider"></div>
+          <label class="field-label">Health Conditions</label>
+          <div class="tag-select" id="ts-conditions" style="margin-bottom:20px">
+            <span class="tag-opt" onclick="toggleTag(this,'conditions')">Obesity</span>
+            <span class="tag-opt" onclick="toggleTag(this,'conditions')">Diabetes</span>
+            <span class="tag-opt" onclick="toggleTag(this,'conditions')">Kidney Disease</span>
+            <span class="tag-opt" onclick="toggleTag(this,'conditions')">Liver Disease</span>
+            <span class="tag-opt" onclick="toggleTag(this,'conditions')">Heart Disease</span>
+            <span class="tag-opt" onclick="toggleTag(this,'conditions')">Pancreatitis</span>
+            <span class="tag-opt" onclick="toggleTag(this,'conditions')">Hypothyroidism</span>
+            <span class="tag-opt" onclick="toggleTag(this,'conditions')">Hyperthyroidism</span>
+            <span class="tag-opt" onclick="toggleTag(this,'conditions')">Joint Disease</span>
+            <span class="tag-opt" onclick="toggleTag(this,'conditions')">IBD</span>
+            <span class="tag-opt" onclick="toggleTag(this,'conditions')">Skin Conditions</span>
+            <span class="tag-opt" onclick="toggleTag(this,'conditions')">Cancer</span>
+            <span class="tag-opt" onclick="toggleTag(this,'conditions')">None</span>
+          </div>
+          <div class="form-group"><label>Current Medications (optional)</label><textarea id="w-meds" placeholder="List any medications or supplements your dog currently takes..."></textarea></div>
+          <div class="form-group">
+            <label>Breed-specific inherited conditions?</label>
+            <div class="radio-group" style="margin-bottom:10px">
+              <span class="radio-btn" onclick="selectRadio('w-inherited',this,'Yes');document.getElementById('inherited-detail').style.display='block'">Yes</span>
+              <span class="radio-btn" onclick="selectRadio('w-inherited',this,'No');document.getElementById('inherited-detail').style.display='none'">No</span>
+            </div>
+            <input type="hidden" id="w-inherited" value="">
+            <div id="inherited-detail" style="display:none">
+              <textarea id="w-inherited-notes" placeholder="Describe any known inherited conditions..."></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Recent bloodwork available?</label>
+            <div class="radio-group" style="margin-bottom:10px">
+              <span class="radio-btn" onclick="selectRadio('w-bloodwork',this,'Yes');document.getElementById('bloodwork-detail').style.display='block'">Yes</span>
+              <span class="radio-btn" onclick="selectRadio('w-bloodwork',this,'No');document.getElementById('bloodwork-detail').style.display='none'">No</span>
+            </div>
+            <input type="hidden" id="w-bloodwork" value="">
+            <div id="bloodwork-detail" style="display:none">
+              <textarea id="w-bloodwork-notes" placeholder="Paste key bloodwork values or describe any abnormal findings..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 4: Lifestyle -->
+        <div class="wizard-step" id="wstep-4">
+          <h2>Lifestyle & diet history</h2>
+          <p class="step-desc">Understanding your dog's current diet helps us recommend realistic transitions and improvements.</p>
+          <label class="field-label">Current Food Type (select all that apply)</label>
+          <div class="tag-select" id="ts-foodtype" style="margin-bottom:20px">
+            <span class="tag-opt" onclick="toggleTag(this,'foodtype')">Kibble</span>
+            <span class="tag-opt" onclick="toggleTag(this,'foodtype')">Wet Food</span>
+            <span class="tag-opt" onclick="toggleTag(this,'foodtype')">Raw</span>
+            <span class="tag-opt" onclick="toggleTag(this,'foodtype')">Freeze-Dried</span>
+            <span class="tag-opt" onclick="toggleTag(this,'foodtype')">Home-Cooked</span>
+            <span class="tag-opt" onclick="toggleTag(this,'foodtype')">Mixed</span>
+          </div>
+          <div class="form-group"><label>Current Food Brand (optional)</label><input type="text" id="w-brand" placeholder="e.g. Orijen, Royal Canin..."></div>
+          <div class="form-group">
+            <label>Meals per Day</label>
+            <div class="radio-group">
+              <span class="radio-btn" onclick="selectRadio('w-meals',this,'1')">1</span>
+              <span class="radio-btn" onclick="selectRadio('w-meals',this,'2')">2</span>
+              <span class="radio-btn" onclick="selectRadio('w-meals',this,'3+')">3+</span>
+            </div>
+            <input type="hidden" id="w-meals" value="">
+          </div>
+          <div class="form-group">
+            <label>Recent Weight Changes</label>
+            <div class="radio-group">
+              <span class="radio-btn" onclick="selectRadio('w-weightchange',this,'Gaining')">Gaining</span>
+              <span class="radio-btn" onclick="selectRadio('w-weightchange',this,'Stable')">Stable</span>
+              <span class="radio-btn" onclick="selectRadio('w-weightchange',this,'Losing')">Losing</span>
+            </div>
+            <input type="hidden" id="w-weightchange" value="">
+          </div>
+          <div class="form-group">
+            <label>Water Intake</label>
+            <select id="w-water">
+              <option value="">Select...</option>
+              <option value="Low">Low (rarely drinks)</option>
+              <option value="Normal">Normal (drinks regularly)</option>
+              <option value="High">High (drinks excessively)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Digestive Issues?</label>
+            <div class="radio-group" style="margin-bottom:10px">
+              <span class="radio-btn" onclick="selectRadio('w-digestion',this,'Yes');document.getElementById('digestion-detail').style.display='block'">Yes</span>
+              <span class="radio-btn" onclick="selectRadio('w-digestion',this,'No');document.getElementById('digestion-detail').style.display='none'">No</span>
+            </div>
+            <input type="hidden" id="w-digestion" value="">
+            <div id="digestion-detail" style="display:none">
+              <div class="tag-select" id="ts-digestive">
+                <span class="tag-opt" onclick="toggleTag(this,'digestive')">Diarrhea</span>
+                <span class="tag-opt" onclick="toggleTag(this,'digestive')">Vomiting</span>
+                <span class="tag-opt" onclick="toggleTag(this,'digestive')">Gas</span>
+                <span class="tag-opt" onclick="toggleTag(this,'digestive')">Constipation</span>
+                <span class="tag-opt" onclick="toggleTag(this,'digestive')">Bloating</span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group"><label>Additional Notes (optional)</label><textarea id="w-lifenotes" placeholder="Anything else about your dog's lifestyle or diet history..."></textarea></div>
+        </div>
+
+        <!-- STEP 5: DNA Upload (conditional) -->
+        <div class="wizard-step" id="wstep-5">
+          <h2>Upload DNA Results</h2>
+          <p class="step-desc">Upload your dog's genetic test file. Our AI will extract breed composition and health markers to build a more precise plan.</p>
+          <div class="form-group">
+            <label>DNA Test Provider</label>
+            <select id="w-dna-provider">
+              <option value="">Select provider</option>
+              <option>Embark</option>
+              <option>Wisdom Panel</option>
+              <option>DNA My Dog</option>
+              <option>Orivet</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Upload DNA File (PDF, CSV, or TXT)</label>
+            <div class="file-drop" id="file-drop" onclick="document.getElementById('w-dna-file').click()">
+              <div class="fd-icon">📁</div>
+              <p id="file-drop-text">Click to upload or drag and drop</p>
+              <small>PDF, CSV, TXT — Max 10MB</small>
+            </div>
+            <input type="file" id="w-dna-file" accept=".pdf,.csv,.txt" style="display:none" onchange="handleFileSelect(this)">
+          </div>
+          <div class="form-group"><label>Additional Notes (optional)</label><textarea id="w-dna-notes" placeholder="Any additional context about your DNA test results..."></textarea></div>
+          <div style="background:var(--blue-light);border-radius:10px;padding:16px;font-size:13px;color:var(--blue);line-height:1.6">
+            <strong>What we extract:</strong> Breed percentages, genetic health markers, predisposition flags, and ancestry data. All information is used solely to generate your dog's nutrition plan.
+          </div>
+        </div>
+
+        <!-- STEP 5 (manual): Generate -->
+        <div class="wizard-step" id="wstep-5m">
+          <h2>Ready to generate your plan</h2>
+          <p class="step-desc">We have everything we need. Pupsona's AI will analyze your dog's profile against AAFCO and NRC dietary guidelines and generate a complete nutrition plan.</p>
+          <div id="plan-summary-box" style="background:var(--gray-bg);border-radius:12px;padding:20px;margin-bottom:20px">
+            <div class="section-lbl" style="margin-bottom:12px">Profile Summary</div>
+            <div id="plan-summary-content" style="font-size:14px;line-height:2;color:var(--text)"></div>
+          </div>
+        </div>
+
+        <div class="wizard-nav">
+          <button class="btn-ghost" id="wiz-back" onclick="wizBack()" style="display:none">← Back</button>
+          <button class="btn-primary btn-lg" id="wiz-next" onclick="wizNext()" style="margin-left:auto">Continue →</button>
+          <button class="btn-success" id="wiz-generate" onclick="generatePlan()" style="display:none;margin-left:auto">Generate My Plan ✦</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== DASHBOARD ==================== -->
+<div class="page" id="page-dashboard">
+  <div class="dashboard-page">
+    <nav class="dash-nav">
+      <div class="dash-logo" onclick="showPage('dashboard')">Pup<span>sona</span></div>
+      <div class="user-menu">
+        <div class="user-avatar" id="dash-avatar">?</div>
+        <span class="user-name" id="dash-username">User</span>
+        <button class="btn-ghost" onclick="doLogout()" style="font-size:13px;padding:6px 14px">Log Out</button>
+      </div>
+    </nav>
+    <div class="dash-content">
+      <div class="dash-welcome">
+        <h1>Welcome back, <span id="dash-firstname">friend</span> 👋</h1>
+        <p>Manage your dogs' nutrition plans below. Each plan is tailored to their unique biology.</p>
+      </div>
+      <div class="quick-stats" id="dash-quick-stats">
+        <div class="qs-card"><div class="qs-label">Dogs on Plan</div><div class="qs-val" id="qs-dogs">0</div><div class="qs-sub">active profiles</div></div>
+        <div class="qs-card"><div class="qs-label">Plans Generated</div><div class="qs-val" id="qs-plans">0</div><div class="qs-sub">total plans</div></div>
+        <div class="qs-card"><div class="qs-label">Account Type</div><div class="qs-val" style="font-size:16px">Free</div><div class="qs-sub">upgrade for PDF export</div></div>
+      </div>
+      <div class="dogs-grid" id="dogs-grid"></div>
+      <div class="plan-history" id="plan-history-section">
+        <h3>Recent Plans</h3>
+        <div id="plan-history-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PLAN PAGE ==================== -->
+<div class="page" id="page-plan">
+  <div class="plan-page">
+    <nav class="dash-nav">
+      <div class="dash-logo" onclick="showPage('dashboard')">Pup<span>sona</span></div>
+      <div class="user-menu">
+        <div class="user-avatar" id="plan-avatar">?</div>
+        <button class="btn-ghost" onclick="showPage('dashboard')" style="font-size:13px;padding:6px 14px">← Dashboard</button>
+        <button class="btn-ghost" onclick="doLogout()" style="font-size:13px;padding:6px 14px">Log Out</button>
+      </div>
+    </nav>
+    <div class="plan-content">
+      <div class="plan-header">
+        <div>
+          <h1 id="plan-dog-name">Plan</h1>
+          <p class="sub" id="plan-subtitle">Your Personalized Nutrition Plan</p>
+        </div>
+        <div class="plan-header-actions">
+          <button class="btn-ghost" onclick="regeneratePlan()">Regenerate Plan ↻</button>
+        </div>
+      </div>
+      <div class="plan-tabs">
+        <button class="plan-tab active" onclick="showTab('calories',this)">Calories</button>
+        <button class="plan-tab" onclick="showTab('macros',this)">Macros</button>
+        <button class="plan-tab" onclick="showTab('foods',this)">Foods</button>
+        <button class="plan-tab" onclick="showTab('supplements',this)">Supplements</button>
+        <button class="plan-tab" onclick="showTab('avoid',this)">Avoid</button>
+        <button class="plan-tab" onclick="showTab('mealplan',this)">7-Day Plan</button>
+        <button class="plan-tab" id="tab-genetics" onclick="showTab('genetics',this)" style="display:none">Genetics</button>
+      </div>
+
+      <!-- Calories -->
+      <div class="plan-panel active" id="panel-calories">
+        <div class="plan-section">
+          <h3>Daily Caloric Needs</h3>
+          <div class="calorie-row">
+            <div class="calorie-box rer"><div class="cb-label">Resting Energy Requirement</div><div class="cb-val" id="plan-rer">—</div><div class="cb-unit">kcal / day</div></div>
+            <div class="calorie-box mer"><div class="cb-label">Maintenance Energy Requirement</div><div class="cb-val" id="plan-mer">—</div><div class="cb-unit">kcal / day</div></div>
+          </div>
+        </div>
+        <div class="plan-section"><h3>Calculation Details</h3><div id="calorie-details" style="font-size:14px;line-height:1.8;color:var(--text-muted)"></div></div>
+        <div class="plan-section"><h3>AI Nutritional Notes</h3><div id="calorie-ai-notes" class="plan-raw" style="box-shadow:none;border:none;padding:0;font-size:14px"></div></div>
+      </div>
+
+      <!-- Macros -->
+      <div class="plan-panel" id="panel-macros">
+        <div class="plan-section">
+          <h3>Macronutrient Targets</h3>
+          <div class="macro-vis">
+            <div class="donut-wrap">
+              <svg class="donut-svg" width="140" height="140" viewBox="0 0 140 140">
+                <circle cx="70" cy="70" r="54" fill="none" stroke="#f0f4f8" stroke-width="20"/>
+                <circle cx="70" cy="70" r="54" fill="none" stroke="#1a6bda" stroke-width="20" stroke-dasharray="0 340" id="donut-protein" stroke-linecap="round"/>
+                <circle cx="70" cy="70" r="54" fill="none" stroke="#4a90e2" stroke-width="20" stroke-dasharray="0 340" id="donut-fat" stroke-linecap="round"/>
+                <circle cx="70" cy="70" r="54" fill="none" stroke="#a8c8f5" stroke-width="20" stroke-dasharray="0 340" id="donut-carbs" stroke-linecap="round"/>
+              </svg>
+              <div class="donut-label"><div style="font-size:11px;color:var(--text-muted)">Total</div><div style="font-size:20px;font-weight:800;color:var(--navy)">100%</div></div>
+            </div>
+            <div class="macro-list" id="macro-list"></div>
+          </div>
+        </div>
+        <div class="plan-section"><h3>Why These Targets?</h3><div id="macro-explanation" class="plan-raw" style="box-shadow:none;border:none;padding:0;font-size:14px"></div></div>
+      </div>
+
+      <!-- Foods -->
+      <div class="plan-panel" id="panel-foods">
+        <div class="plan-section"><h3>Recommended Ingredients</h3><div class="food-grid" id="food-grid"></div></div>
+      </div>
+
+      <!-- Supplements -->
+      <div class="plan-panel" id="panel-supplements">
+        <div class="plan-section"><h3>Supplement Recommendations</h3><div class="supp-list" id="supp-list"></div></div>
+      </div>
+
+      <!-- Avoid -->
+      <div class="plan-panel" id="panel-avoid">
+        <div class="plan-section"><h3>Foods to Avoid</h3><div class="avoid-grid" id="avoid-grid"></div></div>
+      </div>
+
+      <!-- 7-Day Plan -->
+      <div class="plan-panel" id="panel-mealplan">
+        <div class="plan-section">
+          <h3>7-Day Sample Meal Plan</h3>
+          <div style="overflow-x:auto">
+            <table class="meal-table" id="meal-table">
+              <thead><tr><th>Day</th><th>Morning Meal</th><th>Evening Meal</th><th>Total Kcal</th></tr></thead>
+              <tbody id="meal-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Genetics -->
+      <div class="plan-panel" id="panel-genetics">
+        <div class="plan-section"><h3>Genetic Insights</h3><div id="genetics-content"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ==================== STATE ====================
+const DB_KEY = 'pupsona_db';
+let state = {
+  currentUser: null,
+  currentDog: null,
+  currentPlan: null,
+  wizardStep: 1,
+  entryMethod: 'manual',
+  tagSelections: {allergies:[],conditions:[],foodtype:[],digestive:[]},
+  dnaFileContent: null
+};
+
+function getDB(){return JSON.parse(localStorage.getItem(DB_KEY)||'{"users":{},"dogs":{},"plans":{}}');}
+function saveDB(db){localStorage.setItem(DB_KEY,JSON.stringify(db));}
+
+// ==================== NAVIGATION ====================
+function showPage(p){
+  document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
+  document.getElementById('page-'+p).classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function showTab(name,btn){
+  document.querySelectorAll('.plan-panel').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.plan-tab').forEach(x=>x.classList.remove('active'));
+  document.getElementById('panel-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ==================== NOTIFICATIONS ====================
+function showNotif(msg,type=''){
+  const n=document.getElementById('notif');
+  n.textContent=msg;
+  n.className='notif '+(type==='success'?'success-notif':type==='error'?'error-notif':'');
+  n.classList.add('show');
+  setTimeout(()=>n.classList.remove('show'),3500);
+}
+
+// ==================== AUTH ====================
+function openModal(id){
+  document.getElementById(id+'-modal').classList.add('open');
+  document.body.style.overflow='hidden';
+  document.querySelector('#'+id+'-error')&&(document.querySelector('#'+id+'-error').classList.remove('show'));
+}
+function closeModal(id){document.getElementById(id+'-modal').classList.remove('open');document.body.style.overflow='';}
+function switchModal(from,to){closeModal(from);openModal(to);}
+document.querySelectorAll('.modal-overlay').forEach(el=>el.addEventListener('click',function(e){if(e.target===this){const id=this.id.replace('-modal','');closeModal(id);}}));
+
+function showModalError(id,msg){const el=document.getElementById(id+'-error');el.textContent=msg;el.classList.add('show');}
+
+function doSignup(){
+  const fn=document.getElementById('su-fname').value.trim();
+  const ln=document.getElementById('su-lname').value.trim();
+  const email=document.getElementById('su-email').value.trim().toLowerCase();
+  const pw=document.getElementById('su-password').value;
+  const cpw=document.getElementById('su-confirm').value;
+  if(!fn||!email||!pw){showModalError('signup','Please fill in all required fields.');return;}
+  if(pw.length<6){showModalError('signup','Password must be at least 6 characters.');return;}
+  if(pw!==cpw){showModalError('signup','Passwords do not match.');return;}
+  const db=getDB();
+  if(db.users[email]){showModalError('signup','An account with this email already exists.');return;}
+  db.users[email]={fn,ln,email,pw,dogs:[],createdAt:Date.now()};
+  saveDB(db);
+  state.currentUser={fn,ln,email};
+  closeModal('signup');
+  showNotif('Account created! Welcome to Pupsona 🐾','success');
+  checkAndRoute();
+}
+
+function doLogin(){
+  const email=document.getElementById('li-email').value.trim().toLowerCase();
+  const pw=document.getElementById('li-password').value;
+  if(!email||!pw){showModalError('login','Please enter your email and password.');return;}
+  const db=getDB();
+  const user=db.users[email];
+  if(!user||user.pw!==pw){showModalError('login','Incorrect email or password.');return;}
+  state.currentUser={fn:user.fn,ln:user.ln,email};
+  closeModal('login');
+  showNotif(`Welcome back, ${user.fn}! 👋`,'success');
+  checkAndRoute();
+}
+
+function doLogout(){
+  state.currentUser=null;state.currentDog=null;state.currentPlan=null;
+  showPage('landing');
+  showNotif('Logged out successfully.');
+}
+
+function checkAndRoute(){
+  const db=getDB();
+  const user=db.users[state.currentUser.email];
+  if(!user.dogs||user.dogs.length===0){
+    startWizard();
+  } else {
+    showDashboard();
+  }
+}
+
+// ==================== BREEDS ====================
+const BREEDS=['Affenpinscher','Afghan Hound','Airedale Terrier','Akita','Alaskan Malamute','American Bulldog','American Cocker Spaniel','American Eskimo Dog','American Foxhound','American Pitbull Terrier','American Staffordshire Terrier','Anatolian Shepherd','Australian Cattle Dog','Australian Shepherd','Australian Terrier','Basenji','Basset Hound','Beagle','Bearded Collie','Belgian Malinois','Belgian Sheepdog','Belgian Tervuren','Bernese Mountain Dog','Bichon Frise','Bloodhound','Border Collie','Border Terrier','Boston Terrier','Boxer','Boykin Spaniel','Briard','Brittany Spaniel','Brussels Griffon','Bull Terrier','Bulldog','Bullmastiff','Cairn Terrier','Cane Corso','Cardigan Welsh Corgi','Cavalier King Charles Spaniel','Chesapeake Bay Retriever','Chihuahua','Chinese Crested','Chinese Shar-Pei','Chow Chow','Clumber Spaniel','Cocker Spaniel','Collie','Curly-Coated Retriever','Dachshund','Dalmatian','Doberman Pinscher','English Bulldog','English Foxhound','English Setter','English Springer Spaniel','Field Spaniel','Finnish Spitz','Flat-Coated Retriever','French Bulldog','German Pinscher','German Shepherd','German Shorthaired Pointer','German Wirehaired Pointer','Giant Schnauzer','Glen of Imaal Terrier','Golden Retriever','Gordon Setter','Great Dane','Great Pyrenees','Greater Swiss Mountain Dog','Greyhound','Harrier','Havanese','Ibizan Hound','Irish Red and White Setter','Irish Setter','Irish Terrier','Irish Water Spaniel','Irish Wolfhound','Italian Greyhound','Japanese Chin','Keeshond','Kerry Blue Terrier','Komondor','Kuvasz','Labrador Retriever','Lakeland Terrier','Leonberger','Lhasa Apso','Löwchen','Maltese','Manchester Terrier','Mastiff','Miniature Bull Terrier','Miniature Pinscher','Miniature Schnauzer','Mixed Breed / Mutt','Neapolitan Mastiff','Newfoundland','Norfolk Terrier','Norwegian Elkhound','Norwich Terrier','Nova Scotia Duck Tolling Retriever','Old English Sheepdog','Otterhound','Papillon','Pekingese','Pembroke Welsh Corgi','Petit Basset Griffon Vendéen','Pharaoh Hound','Plott','Pointer','Polish Lowland Sheepdog','Pomeranian','Poodle (Miniature)','Poodle (Standard)','Poodle (Toy)','Portuguese Water Dog','Pug','Puli','Rat Terrier','Redbone Coonhound','Rhodesian Ridgeback','Rottweiler','Saint Bernard','Saluki','Samoyed','Schipperke','Scottish Deerhound','Scottish Terrier','Sealyham Terrier','Shetland Sheepdog','Shiba Inu','Shih Tzu','Siberian Husky','Silky Terrier','Skye Terrier','Soft Coated Wheaten Terrier','Staffordshire Bull Terrier','Standard Schnauzer','Sussex Spaniel','Tibetan Mastiff','Tibetan Spaniel','Tibetan Terrier','Toy Fox Terrier','Treeing Walker Coonhound','Vizsla','Weimaraner','Welsh Springer Spaniel','Welsh Terrier','West Highland White Terrier','Whippet','Wire Fox Terrier','Wirehaired Pointing Griffon','Xoloitzcuintli','Yorkshire Terrier'];
+
+function filterBreeds(val){
+  const dd=document.getElementById('breed-dd');
+  if(!val){dd.classList.remove('open');return;}
+  const matches=BREEDS.filter(b=>b.toLowerCase().includes(val.toLowerCase())).slice(0,8);
+  if(!matches.length){dd.classList.remove('open');return;}
+  dd.innerHTML=matches.map(b=>`<div class="breed-opt" onclick="selectBreed('${b}')">${b}</div>`).join('');
+  dd.classList.add('open');
+}
+function openBreedDD(){if(document.getElementById('w-breed-input').value)filterBreeds(document.getElementById('w-breed-input').value);}
+function selectBreed(b){document.getElementById('w-breed-input').value=b;document.getElementById('w-breed').value=b;document.getElementById('breed-dd').classList.remove('open');}
+document.addEventListener('click',e=>{if(!e.target.closest('.breed-search'))document.getElementById('breed-dd')&&document.getElementById('breed-dd').classList.remove('open');});
+
+// ==================== WIZARD ====================
+const stepNames=['Choose Entry Method','Basic Profile','Health History','Lifestyle & Diet','DNA Upload'];
+let wizardSteps={dna:[1,2,3,4,5],manual:[1,2,3,4,'5m']};
+
+function startWizard(){
+  state.wizardStep=1;
+  state.entryMethod='manual';
+  state.tagSelections={allergies:[],conditions:[],foodtype:[],digestive:[]};
+  resetWizardUI();
+  showPage('wizard');
+}
+
+function resetWizardUI(){
+  document.querySelectorAll('.wizard-step').forEach(x=>x.classList.remove('active'));
+  document.getElementById('wstep-1').classList.add('active');
+  document.getElementById('wiz-back').style.display='none';
+  document.getElementById('wiz-next').style.display='inline-block';
+  document.getElementById('wiz-next').textContent='Continue →';
+  document.getElementById('wiz-generate').style.display='none';
+  updateWizardProgress(1);
+}
+
+function updateWizardProgress(step){
+  const steps=wizardSteps[state.entryMethod];
+  const idx=steps.indexOf(step);
+  const total=steps.length;
+  const pct=((idx+1)/total)*100;
+  document.getElementById('wiz-progress').style.width=pct+'%';
+  document.getElementById('wiz-step-label').textContent=`Step ${idx+1} of ${total}`;
+  const names={1:'Choose Entry Method',2:'Basic Profile',3:'Health History',4:'Lifestyle & Diet',5:'DNA Upload','5m':'Generate Plan'};
+  document.getElementById('wiz-step-name').textContent=names[step]||'';
+}
+
+function selectEntry(method){
+  state.entryMethod=method;
+  document.getElementById('ec-dna').classList.toggle('selected',method==='dna');
+  document.getElementById('ec-manual').classList.toggle('selected',method==='manual');
+}
+
+function selectRadio(id,el,val){
+  el.closest('.radio-group').querySelectorAll('.radio-btn').forEach(b=>b.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById(id).value=val;
+}
+
+function toggleTag(el,group){
+  const val=el.textContent.trim();
+  if(val==='None'){
+    state.tagSelections[group]=[];
+    el.closest('.tag-select').querySelectorAll('.tag-opt').forEach(t=>t.classList.remove('selected'));
+    el.classList.add('selected');
+    state.tagSelections[group]=['None'];
+    return;
+  }
+  const noneEl=Array.from(el.closest('.tag-select').querySelectorAll('.tag-opt')).find(t=>t.textContent.trim()==='None');
+  if(noneEl)noneEl.classList.remove('selected');
+  state.tagSelections[group]=state.tagSelections[group].filter(v=>v!=='None');
+  el.classList.toggle('selected');
+  if(el.classList.contains('selected')){
+    if(!state.tagSelections[group].includes(val))state.tagSelections[group].push(val);
+  } else {
+    state.tagSelections[group]=state.tagSelections[group].filter(v=>v!==val);
+  }
+}
+
+function selectAgeUnit(u){
+  document.querySelectorAll('[id^="age-unit-"]').forEach(b=>b.classList.remove('active'));
+  document.getElementById('age-unit-'+u).classList.add('active');
+  document.getElementById('w-age-unit').value=u;
+}
+function selectWeightUnit(u){
+  document.getElementById('wt-lbs').classList.toggle('active',u==='lbs');
+  document.getElementById('wt-kg').classList.toggle('active',u==='kg');
+  document.getElementById('w-weight-unit').value=u;
+}
+
+function handleFileSelect(input){
+  const file=input.files[0];
+  if(!file)return;
+  const drop=document.getElementById('file-drop');
+  document.getElementById('file-drop-text').textContent=`✓ ${file.name}`;
+  drop.classList.add('has-file');
+  const reader=new FileReader();
+  reader.onload=e=>{state.dnaFileContent=e.target.result;};
+  reader.readAsText(file);
+}
+
+function wizNext(){
+  const steps=wizardSteps[state.entryMethod];
+  const currentIdx=steps.indexOf(state.wizardStep);
+  // Validate current step
+  if(!validateWizardStep(state.wizardStep))return;
+  if(currentIdx>=steps.length-2){
+    // Last step before generate
+    const nextStep=steps[currentIdx+1];
+    state.wizardStep=nextStep;
+    document.querySelectorAll('.wizard-step').forEach(x=>x.classList.remove('active'));
+    document.getElementById('wstep-'+nextStep).classList.add('active');
+    document.getElementById('wiz-next').style.display='none';
+    document.getElementById('wiz-generate').style.display='inline-block';
+    document.getElementById('wiz-back').style.display='inline-block';
+    if(nextStep==='5m')buildPlanSummary();
+    updateWizardProgress(nextStep);
+  } else {
+    const nextStep=steps[currentIdx+1];
+    state.wizardStep=nextStep;
+    document.querySelectorAll('.wizard-step').forEach(x=>x.classList.remove('active'));
+    document.getElementById('wstep-'+nextStep).classList.add('active');
+    document.getElementById('wiz-back').style.display='inline-block';
+    updateWizardProgress(nextStep);
+  }
+}
+
+function wizBack(){
+  const steps=wizardSteps[state.entryMethod];
+  const currentIdx=steps.indexOf(state.wizardStep);
+  if(currentIdx<=0)return;
+  const prevStep=steps[currentIdx-1];
+  state.wizardStep=prevStep;
+  document.querySelectorAll('.wizard-step').forEach(x=>x.classList.remove('active'));
+  document.getElementById('wstep-'+prevStep).classList.add('active');
+  document.getElementById('wiz-next').style.display='inline-block';
+  document.getElementById('wiz-generate').style.display='none';
+  if(currentIdx-1===0)document.getElementById('wiz-back').style.display='none';
+  updateWizardProgress(prevStep);
+}
+
+function validateWizardStep(step){
+  if(step===1){
+    if(!state.entryMethod){showNotif('Please select an entry method.','error');return false;}
+    return true;
+  }
+  if(step===2){
+    const name=document.getElementById('w-dogname').value.trim();
+    const breed=document.getElementById('w-breed').value;
+    const age=document.getElementById('w-age').value;
+    const weight=document.getElementById('w-weight').value;
+    const activity=document.getElementById('w-activity').value;
+    if(!name){showNotif("Please enter your dog's name.",'error');return false;}
+    if(!breed){showNotif('Please select a breed.','error');return false;}
+    if(!age||age<=0){showNotif('Please enter a valid age.','error');return false;}
+    if(!weight||weight<=0){showNotif('Please enter a valid weight.','error');return false;}
+    if(!activity){showNotif('Please select an activity level.','error');return false;}
+    return true;
+  }
+  return true;
+}
+
+function buildPlanSummary(){
+  const name=document.getElementById('w-dogname').value.trim();
+  const breed=document.getElementById('w-breed').value;
+  const age=document.getElementById('w-age').value+' '+document.getElementById('w-age-unit').value;
+  const weight=document.getElementById('w-weight').value+' '+document.getElementById('w-weight-unit').value;
+  const sex=document.getElementById('w-sex').value||'Not specified';
+  const bcs=document.getElementById('w-bcs').value;
+  const activity=document.getElementById('w-activity').value;
+  const allergies=state.tagSelections.allergies.join(', ')||'None';
+  const conditions=state.tagSelections.conditions.join(', ')||'None';
+  document.getElementById('plan-summary-content').innerHTML=`
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 24px">
+      <div><strong>Name:</strong> ${name}</div>
+      <div><strong>Breed:</strong> ${breed}</div>
+      <div><strong>Age:</strong> ${age}</div>
+      <div><strong>Weight:</strong> ${weight}</div>
+      <div><strong>Sex:</strong> ${sex}</div>
+      <div><strong>BCS:</strong> ${bcs}/9</div>
+      <div><strong>Activity:</strong> ${activity}</div>
+      <div><strong>Allergies:</strong> ${allergies}</div>
+      <div><strong>Conditions:</strong> ${conditions}</div>
+    </div>`;
+}
+
+// ==================== PLAN GENERATION ====================
+async function generatePlan(){
+  // Collect all data
+  const name=document.getElementById('w-dogname').value.trim();
+  const breed=document.getElementById('w-breed').value;
+  const age=document.getElementById('w-age').value+' '+document.getElementById('w-age-unit').value;
+  const weight=document.getElementById('w-weight').value;
+  const weightUnit=document.getElementById('w-weight-unit').value;
+  const sex=document.getElementById('w-sex').value||'Unspecified';
+  const bcs=document.getElementById('w-bcs').value;
+  const activity=document.getElementById('w-activity').value;
+  const allergies=state.tagSelections.allergies.join(', ')||'None';
+  const conditions=state.tagSelections.conditions.join(', ')||'None';
+  const meds=document.getElementById('w-meds').value||'None';
+  const foodtype=state.tagSelections.foodtype.join(', ')||'Not specified';
+  const brand=document.getElementById('w-brand').value||'Not specified';
+  const meals=document.getElementById('w-meals').value||'Not specified';
+  const weightChange=document.getElementById('w-weightchange').value||'Not specified';
+  const water=document.getElementById('w-water').value||'Normal';
+  const lifenotes=document.getElementById('w-lifenotes').value||'None';
+  const dnaProvider=document.getElementById('w-dna-provider')?.value||'';
+  const dnaNotes=document.getElementById('w-dna-notes')?.value||'';
+  const dnaInfo=state.entryMethod==='dna'&&state.dnaFileContent?`DNA file content (extract breed and genetic markers): ${state.dnaFileContent.substring(0,2000)}`:'No DNA data provided.';
+  const bloodworkNotes=document.getElementById('w-bloodwork-notes')?.value||'';
+  const inheritedNotes=document.getElementById('w-inherited-notes')?.value||'';
+
+  // Calculate RER/MER
+  let weightKg=parseFloat(weight);
+  if(weightUnit==='lbs')weightKg=weightKg/2.205;
+  const rer=Math.round(70*Math.pow(weightKg,0.75));
+  const multipliers={'Sedentary':1.2,'Lightly Active':1.4,'Moderately Active':1.6,'Highly Active':1.8,'Working Dog':2.0};
+  const mult=multipliers[activity]||1.6;
+  const mer=Math.round(rer*mult);
+
+  const prompt=`You are a veterinary nutritionist AI trained on AAFCO and NRC dietary guidelines. Generate a complete, detailed nutritional plan for a dog with the following profile:
+
+Name: ${name}
+Breed: ${breed}
+Age: ${age}
+Sex: ${sex}
+Weight: ${weight} ${weightUnit} (${weightKg.toFixed(1)} kg)
+Body Condition Score: ${bcs}/9
+Activity Level: ${activity}
+Known Allergies: ${allergies}
+Health Conditions: ${conditions}
+Current Medications: ${meds}
+Current Diet Type: ${foodtype}
+Current Brand: ${brand}
+Meals Per Day: ${meals}
+Recent Weight Trend: ${weightChange}
+Water Intake: ${water}
+Bloodwork Notes: ${bloodworkNotes||'None'}
+Inherited Condition Notes: ${inheritedNotes||'None'}
+Lifestyle Notes: ${lifenotes}
+DNA Provider: ${dnaProvider||'None'}
+${dnaInfo}
+
+Pre-calculated values:
+- RER: ${rer} kcal/day (70 × ${weightKg.toFixed(1)}^0.75)
+- MER: ${mer} kcal/day (RER × ${mult} for ${activity})
+
+IMPORTANT: Respond ONLY with a valid JSON object. No markdown, no explanation outside the JSON. Use this exact structure:
+{
+  "calorie_notes": "2-3 sentence explanation of calorie needs tailored to this dog",
+  "protein_pct": 32,
+  "fat_pct": 28,
+  "carb_pct": 40,
+  "macro_explanation": "2-3 sentence explanation of why these macro ratios are appropriate",
+  "foods": [
+    {"name":"Salmon","category":"Protein","benefit":"Rich in omega-3s, ideal for skin health","amount":"3 oz per meal","icon":"🐟"},
+    {"name":"Sweet Potato","category":"Carbohydrate","benefit":"Digestible complex carb, high in fiber","amount":"1/4 cup per meal","icon":"🍠"},
+    {"name":"Blueberries","category":"Fruit/Antioxidant","benefit":"Antioxidants support immune function","amount":"1 tbsp daily","icon":"🫐"},
+    {"name":"Kale","category":"Vegetable","benefit":"Vitamins A, C, K","amount":"1 tbsp per meal","icon":"🥬"},
+    {"name":"Chicken","category":"Protein","benefit":"Lean protein source","amount":"3 oz per meal","icon":"🍗"},
+    {"name":"Brown Rice","category":"Carbohydrate","benefit":"Gentle on digestion","amount":"1/4 cup per meal","icon":"🍚"}
+  ],
+  "supplements": [
+    {"name":"Omega-3 Fish Oil","reason":"Supports coat, skin, and joint health","dosage":"1000mg/day"},
+    {"name":"Probiotics","reason":"Supports digestive health and immune function","dosage":"1 capsule/day"},
+    {"name":"Glucosamine","reason":"Joint support, especially relevant for this breed","dosage":"500mg/day"}
+  ],
+  "avoid": [
+    {"name":"Chicken (if allergic)","reason":"Known allergen for this dog based on profile"},
+    {"name":"High-phosphorus foods","reason":"Not recommended given health conditions"},
+    {"name":"Grapes and Raisins","reason":"Toxic to all dogs"}
+  ],
+  "meal_plan": [
+    {"day":"Monday","morning":"3 oz salmon + 1/4 cup sweet potato + 1 tsp fish oil","evening":"2.5 oz turkey + 1/4 cup brown rice + steamed broccoli","kcal":${mer}},
+    {"day":"Tuesday","morning":"3 oz turkey + cooked quinoa + blueberries","evening":"3 oz salmon + roasted sweet potato","kcal":${mer}},
+    {"day":"Wednesday","morning":"2.5 oz venison + brown rice + kale","evening":"3 oz turkey + sweet potato + fish oil","kcal":${mer}},
+    {"day":"Thursday","morning":"3 oz salmon + quinoa + carrots","evening":"2.5 oz venison + roasted vegetables","kcal":${mer}},
+    {"day":"Friday","morning":"3 oz turkey + sweet potato + blueberries","evening":"3 oz salmon + brown rice + kale","kcal":${mer}},
+    {"day":"Saturday","morning":"2.5 oz venison + cooked lentils + carrots","evening":"3 oz turkey + sweet potato","kcal":${mer}},
+    {"day":"Sunday","morning":"3 oz salmon + quinoa + blueberries","evening":"2.5 oz turkey + brown rice + green beans","kcal":${mer}}
+  ],
+  "genetic_insights": ${state.entryMethod==='dna'?'"Breed composition and genetic markers extracted from DNA file. Include 2-3 sentences about how the genetics inform this plan."':'"No DNA data provided."'},
+  "genetic_markers": ${state.entryMethod==='dna'?'[{"marker":"MDR1 Gene","status":"Normal","implication":"Standard drug metabolism"},{"marker":"EIC Risk","status":"Low","implication":"No exercise-induced collapse risk"},{"marker":"Hip Dysplasia Risk","status":"Elevated","implication":"Consider joint supplements and weight management"}]':'[]'}
+}
+
+Make ALL recommendations highly specific to THIS dog's exact profile. If there are allergies, avoid those ingredients in the food list. If there are health conditions, adjust recommendations accordingly. The meal plan should reflect the dog's actual allergies and conditions.`;
+
+  document.getElementById('loading').classList.add('open');
+
+  try {
+    const response=await fetch('/.netlify/functions/nutrition',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({prompt})
+    });
+    const data=await response.json();
+    let raw=data.content.map(i=>i.text||'').join('');
+    raw=raw.replace(/```json|```/g,'').trim();
+    const plan=JSON.parse(raw);
+
+    // Save dog + plan to DB
+    const db=getDB();
+    const dogId='dog_'+Date.now();
+    const planId='plan_'+Date.now();
+
+    const dogData={
+      id:dogId,name,breed,age,weight,weightUnit,sex,bcs:parseInt(bcs),activity,
+      allergies:state.tagSelections.allergies,conditions:state.tagSelections.conditions,
+      meds,foodtype:state.tagSelections.foodtype,brand,meals,weightChange,water,lifenotes,
+      entryMethod:state.entryMethod,dnaProvider,dnaNotes,createdAt:Date.now()
+    };
+    const planData={
+      id:planId,dogId,dogName:name,breed,
+      rer,mer,protein_pct:plan.protein_pct,fat_pct:plan.fat_pct,carb_pct:plan.carb_pct,
+      calorie_notes:plan.calorie_notes,macro_explanation:plan.macro_explanation,
+      foods:plan.foods,supplements:plan.supplements,avoid:plan.avoid,meal_plan:plan.meal_plan,
+      genetic_insights:plan.genetic_insights,genetic_markers:plan.genetic_markers||[],
+      entryMethod:state.entryMethod,createdAt:Date.now()
+    };
+
+    db.dogs[dogId]=dogData;
+    db.plans[planId]=planData;
+    if(!db.users[state.currentUser.email].dogs)db.users[state.currentUser.email].dogs=[];
+    db.users[state.currentUser.email].dogs.push(dogId);
+    if(!db.users[state.currentUser.email].plans)db.users[state.currentUser.email].plans=[];
+    db.users[state.currentUser.email].plans.push(planId);
+    saveDB(db);
+
+    state.currentDog=dogData;
+    state.currentPlan=planData;
+
+    document.getElementById('loading').classList.remove('open');
+    renderPlanPage(dogData,planData);
+    showPage('plan');
+    showNotif(`Plan generated for ${name}! 🐾`,'success');
+  } catch(err){
+    document.getElementById('loading').classList.remove('open');
+    console.error(err);
+    showNotif('Error generating plan. Please check your API key or try again.','error');
+  }
+}
+
+// ==================== PLAN PAGE ====================
+function renderPlanPage(dog,plan){
+  document.getElementById('plan-dog-name').textContent=`${dog.name}'s Nutrition Plan`;
+  document.getElementById('plan-subtitle').textContent=`${dog.breed} · Generated ${new Date(plan.createdAt).toLocaleDateString()}`;
+  document.getElementById('plan-avatar').textContent=(state.currentUser?.fn||'U')[0].toUpperCase();
+
+  // Calories
+  document.getElementById('plan-rer').textContent=plan.rer.toLocaleString();
+  document.getElementById('plan-mer').textContent=plan.mer.toLocaleString();
+  const weightKg=dog.weightUnit==='lbs'?dog.weight/2.205:dog.weight;
+  const mult={'Sedentary':1.2,'Lightly Active':1.4,'Moderately Active':1.6,'Highly Active':1.8,'Working Dog':2.0}[dog.activity]||1.6;
+  document.getElementById('calorie-details').innerHTML=`
+    <strong>RER Formula:</strong> 70 × (${weightKg.toFixed(1)} kg)<sup>0.75</sup> = <strong>${plan.rer} kcal/day</strong><br>
+    <strong>MER Formula:</strong> RER × ${mult} (${dog.activity} multiplier) = <strong>${plan.mer} kcal/day</strong><br>
+    <strong>Weight:</strong> ${dog.weight} ${dog.weightUnit} (${weightKg.toFixed(1)} kg)<br>
+    <strong>Body Condition Score:</strong> ${dog.bcs}/9<br>
+    <strong>Activity Level:</strong> ${dog.activity}`;
+  document.getElementById('calorie-ai-notes').textContent=plan.calorie_notes||'';
+
+  // Macros
+  const circ=2*Math.PI*54;
+  const p=plan.protein_pct/100,f=plan.fat_pct/100,c=plan.carb_pct/100;
+  const pDash=circ*p,fDash=circ*f,cDash=circ*c;
+  const pOffset=0,fOffset=circ*(1-p),cOffset=circ*(1-p-f);
+  document.getElementById('donut-protein').setAttribute('stroke-dasharray',`${pDash} ${circ-pDash}`);
+  document.getElementById('donut-protein').setAttribute('stroke-dashoffset',pOffset);
+  document.getElementById('donut-fat').setAttribute('stroke-dasharray',`${fDash} ${circ-fDash}`);
+  document.getElementById('donut-fat').setAttribute('stroke-dashoffset',fOffset);
+  document.getElementById('donut-carbs').setAttribute('stroke-dasharray',`${cDash} ${circ-cDash}`);
+  document.getElementById('donut-carbs').setAttribute('stroke-dashoffset',cOffset);
+  document.getElementById('macro-list').innerHTML=[
+    {name:'Protein',pct:plan.protein_pct,color:'#1a6bda'},
+    {name:'Fat',pct:plan.fat_pct,color:'#4a90e2'},
+    {name:'Carbohydrates',pct:plan.carb_pct,color:'#a8c8f5'}
+  ].map(m=>`<div class="ml-row"><div class="ml-dot" style="background:${m.color}"></div><span class="ml-name">${m.name}</span><span class="ml-pct">${m.pct}%</span></div>`).join('');
+  document.getElementById('macro-explanation').textContent=plan.macro_explanation||'';
+
+  // Foods
+  const icons={'Protein':'🥩','Carbohydrate':'🌾','Vegetable':'🥦','Fruit':'🍓','Fruit/Antioxidant':'🫐','Fat':'🫒','Other':'🍽️'};
+  document.getElementById('food-grid').innerHTML=(plan.foods||[]).map(f=>`
+    <div class="food-card">
+      <div class="fc-icon">${f.icon||icons[f.category]||'🍽️'}</div>
+      <div class="fc-name">${f.name}</div>
+      <div class="fc-cat">${f.category}</div>
+      <div class="fc-benefit">${f.benefit}</div>
+      <span class="fc-amount">${f.amount}</span>
+    </div>`).join('');
+
+  // Supplements
+  document.getElementById('supp-list').innerHTML=(plan.supplements||[]).map(s=>`
+    <div class="supp-item">
+      <div class="si-info"><h4>${s.name}</h4><p>${s.reason}</p></div>
+      <div class="si-dose">${s.dosage}</div>
+    </div>`).join('');
+
+  // Avoid
+  document.getElementById('avoid-grid').innerHTML=(plan.avoid||[]).map(a=>`
+    <div class="avoid-card">
+      <div class="av-name">⚠ ${a.name}</div>
+      <div class="av-reason">${a.reason}</div>
+    </div>`).join('');
+
+  // Meal plan
+  document.getElementById('meal-table-body').innerHTML=(plan.meal_plan||[]).map(d=>`
+    <tr>
+      <td class="day">${d.day}</td>
+      <td class="meal-text">${d.morning}</td>
+      <td class="meal-text">${d.evening}</td>
+      <td><strong>${(d.kcal||plan.mer).toLocaleString()}</strong> kcal</td>
+    </tr>`).join('');
+
+  // Genetics tab
+  if(plan.entryMethod==='dna'){
+    document.getElementById('tab-genetics').style.display='';
+    document.getElementById('genetics-content').innerHTML=`
+      <p style="font-size:14px;line-height:1.8;color:var(--text-muted);margin-bottom:20px">${plan.genetic_insights}</p>
+      ${plan.genetic_markers&&plan.genetic_markers.length?`
+      <table class="insight-table" style="width:100%;margin-top:16px">
+        <thead><tr><th>Marker</th><th>Status</th><th>Clinical Implication</th></tr></thead>
+        <tbody>${plan.genetic_markers.map(m=>`<tr><td style="font-weight:600">${m.marker}</td><td><span class="${m.status==='Normal'||m.status==='Low'?'flag-normal':m.status==='Elevated'||m.status==='High'?'flag-high':'flag-low'}">${m.status}</span></td><td style="font-size:13px;color:var(--text-muted)">${m.implication}</td></tr>`).join('')}</tbody>
+      </table>`:''}`;
+  } else {
+    document.getElementById('tab-genetics').style.display='none';
+  }
+}
+
+async function regeneratePlan(){
+  if(!state.currentDog)return;
+  // Re-populate wizard fields from dog data and regenerate
+  showNotif('Regenerating plan...','');
+  document.getElementById('loading').classList.add('open');
+  // Use saved dog data directly
+  const dog=state.currentDog;
+  const db=getDB();
+  const weightKg=dog.weightUnit==='lbs'?dog.weight/2.205:dog.weight;
+  const rer=Math.round(70*Math.pow(weightKg,0.75));
+  const mult={'Sedentary':1.2,'Lightly Active':1.4,'Moderately Active':1.6,'Highly Active':1.8,'Working Dog':2.0}[dog.activity]||1.6;
+  const mer=Math.round(rer*mult);
+  const allergies=(dog.allergies||[]).join(', ')||'None';
+  const conditions=(dog.conditions||[]).join(', ')||'None';
+
+  const prompt=`You are a veterinary nutritionist AI trained on AAFCO and NRC dietary guidelines. Generate a complete nutritional plan for: Name: ${dog.name}, Breed: ${dog.breed}, Age: ${dog.age}, Sex: ${dog.sex}, Weight: ${dog.weight} ${dog.weightUnit}, BCS: ${dog.bcs}/9, Activity: ${dog.activity}, Allergies: ${allergies}, Conditions: ${conditions}, Meds: ${dog.meds||'None'}, Diet: ${(dog.foodtype||[]).join(', ')}. RER: ${rer} kcal/day, MER: ${mer} kcal/day.
+Respond ONLY with valid JSON using this structure: {"calorie_notes":"...","protein_pct":32,"fat_pct":28,"carb_pct":40,"macro_explanation":"...","foods":[{"name":"...","category":"...","benefit":"...","amount":"...","icon":"..."}],"supplements":[{"name":"...","reason":"...","dosage":"..."}],"avoid":[{"name":"...","reason":"..."}],"meal_plan":[{"day":"Monday","morning":"...","evening":"...","kcal":${mer}},{"day":"Tuesday","morning":"...","evening":"...","kcal":${mer}},{"day":"Wednesday","morning":"...","evening":"...","kcal":${mer}},{"day":"Thursday","morning":"...","evening":"...","kcal":${mer}},{"day":"Friday","morning":"...","evening":"...","kcal":${mer}},{"day":"Saturday","morning":"...","evening":"...","kcal":${mer}},{"day":"Sunday","morning":"...","evening":"...","kcal":${mer}}],"genetic_insights":"No DNA data.","genetic_markers":[]}`;
+
+  try {
+    const response=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:3000,messages:[{role:'user',content:prompt}]})});
+    const data=await response.json();
+    let raw=data.content.map(i=>i.text||'').join('').replace(/```json|```/g,'').trim();
+    const plan=JSON.parse(raw);
+    const planId='plan_'+Date.now();
+    const planData={id:planId,dogId:dog.id,dogName:dog.name,breed:dog.breed,rer,mer,...plan,entryMethod:dog.entryMethod,createdAt:Date.now()};
+    db.plans[planId]=planData;
+    if(!db.users[state.currentUser.email].plans)db.users[state.currentUser.email].plans=[];
+    db.users[state.currentUser.email].plans.push(planId);
+    saveDB(db);
+    state.currentPlan=planData;
+    document.getElementById('loading').classList.remove('open');
+    renderPlanPage(dog,planData);
+    showNotif('Plan regenerated!','success');
+  } catch(err){
+    document.getElementById('loading').classList.remove('open');
+    showNotif('Regeneration failed. Please try again.','error');
+  }
+}
+
+// ==================== DASHBOARD ====================
+function showDashboard(){
+  const db=getDB();
+  const user=db.users[state.currentUser.email];
+  document.getElementById('dash-firstname').textContent=user.fn;
+  document.getElementById('dash-username').textContent=user.fn+' '+user.ln;
+  document.getElementById('dash-avatar').textContent=user.fn[0].toUpperCase();
+
+  const dogs=(user.dogs||[]).map(id=>db.dogs[id]).filter(Boolean);
+  const plans=(user.plans||[]).map(id=>db.plans[id]).filter(Boolean);
+
+  document.getElementById('qs-dogs').textContent=dogs.length;
+  document.getElementById('qs-plans').textContent=plans.length;
+
+  // Render dog cards
+  const grid=document.getElementById('dogs-grid');
+  grid.innerHTML='';
+  if(dogs.length===0){
+    grid.innerHTML=`<div class="empty-state" style="grid-column:1/-1">
+      <div class="es-icon">🐾</div>
+      <h3>No dogs yet</h3>
+      <p>Add your first dog to generate a personalized nutrition plan.</p>
+      <button class="btn-primary btn-lg" onclick="startWizard()">Add Your Dog +</button>
+    </div>`;
+  } else {
+    dogs.forEach(dog=>{
+      const latestPlan=plans.filter(p=>p.dogId===dog.id).sort((a,b)=>b.createdAt-a.createdAt)[0];
+      const chips=[
+        ...dog.allergies.filter(a=>a&&a!=='None').map(a=>`<span class="dog-chip red">⚠ ${a} allergy</span>`),
+        ...dog.conditions.filter(c=>c&&c!=='None').map(c=>`<span class="dog-chip">${c}</span>`),
+        dog.entryMethod==='dna'?'<span class="dog-chip green">🧬 DNA Verified</span>':''
+      ].slice(0,4).join('');
+      grid.innerHTML+=`<div class="dog-card">
+        <div class="dog-card-header">
+          <div class="dog-card-avatar">🐕</div>
+          <div class="dog-card-info"><h3>${dog.name}</h3><p>${dog.breed} · ${dog.age} · ${dog.weight} ${dog.weightUnit}</p></div>
+        </div>
+        <div class="dog-card-body">
+          <div class="dog-chip-row">${chips||'<span class="dog-chip green">Healthy</span>'}</div>
+          ${latestPlan?`<div style="font-size:12px;color:var(--text-muted);margin-bottom:12px">Last plan: ${new Date(latestPlan.createdAt).toLocaleDateString()} · ${latestPlan.rer} RER / ${latestPlan.mer} MER kcal</div>`:'<div style="font-size:12px;color:var(--text-muted);margin-bottom:12px">No plan generated yet</div>'}
+          <div class="dog-card-actions">
+            ${latestPlan?`<button class="btn-view" onclick="viewDogPlan('${dog.id}')">View Plan</button>`:''}
+            <button onclick="regenerateDogPlan('${dog.id}')">New Plan ✦</button>
+            <button onclick="deleteDog('${dog.id}')" style="color:var(--red);border-color:#fcd5d5">Remove</button>
+          </div>
+        </div>
+      </div>`;
+    });
+    grid.innerHTML+=`<div class="add-dog-card" onclick="addAnotherDog()">
+      <div class="add-icon">+</div>
+      <h3>Add Another Dog</h3>
+      <p>Create a separate nutrition plan for another dog.</p>
+    </div>`;
+  }
+
+  // Plan history
+  const histEl=document.getElementById('plan-history-list');
+  if(plans.length===0){
+    histEl.innerHTML='<p style="font-size:14px;color:var(--text-muted);text-align:center;padding:20px">No plans generated yet.</p>';
+  } else {
+    histEl.innerHTML=plans.sort((a,b)=>b.createdAt-a.createdAt).slice(0,8).map(p=>`
+      <div class="history-item">
+        <div><div class="hi-dog">${p.dogName} — ${p.breed}</div><div class="hi-date">${new Date(p.createdAt).toLocaleString()}</div></div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="font-size:12px;color:var(--text-muted)">${p.mer} kcal MER</span>
+          <span class="hi-badge">Generated</span>
+          <button class="btn-ghost" style="font-size:12px;padding:5px 12px" onclick="viewPlanById('${p.id}','${p.dogId}')">View</button>
+        </div>
+      </div>`).join('');
+  }
+  showPage('dashboard');
+}
+
+function viewDogPlan(dogId){
+  const db=getDB();
+  const dog=db.dogs[dogId];
+  const user=db.users[state.currentUser.email];
+  const plans=(user.plans||[]).map(id=>db.plans[id]).filter(p=>p&&p.dogId===dogId);
+  const plan=plans.sort((a,b)=>b.createdAt-a.createdAt)[0];
+  if(!dog||!plan){showNotif('Plan not found.','error');return;}
+  state.currentDog=dog;state.currentPlan=plan;
+  renderPlanPage(dog,plan);
+  showPage('plan');
+}
+
+function viewPlanById(planId,dogId){
+  const db=getDB();
+  const dog=db.dogs[dogId];
+  const plan=db.plans[planId];
+  if(!dog||!plan){showNotif('Plan not found.','error');return;}
+  state.currentDog=dog;state.currentPlan=plan;
+  renderPlanPage(dog,plan);
+  showPage('plan');
+}
+
+async function regenerateDogPlan(dogId){
+  const db=getDB();
+  const dog=db.dogs[dogId];
+  if(!dog){return;}
+  state.currentDog=dog;
+  state.entryMethod=dog.entryMethod||'manual';
+  state.tagSelections={
+    allergies:dog.allergies||[],conditions:dog.conditions||[],
+    foodtype:dog.foodtype||[],digestive:[]
+  };
+  // Populate hidden fields for regeneration
+  document.getElementById('w-dogname').value=dog.name;
+  document.getElementById('w-breed').value=dog.breed;
+  document.getElementById('w-age').value=dog.age?.split(' ')[0]||'';
+  document.getElementById('w-weight').value=dog.weight;
+  document.getElementById('w-weight-unit').value=dog.weightUnit||'lbs';
+  document.getElementById('w-sex').value=dog.sex||'';
+  document.getElementById('w-bcs').value=dog.bcs||5;
+  document.getElementById('w-activity').value=dog.activity||'';
+  document.getElementById('w-meds').value=dog.meds||'';
+  document.getElementById('w-brand').value=dog.brand||'';
+  document.getElementById('w-meals').value=dog.meals||'';
+  document.getElementById('w-weightchange').value=dog.weightChange||'';
+  document.getElementById('w-water').value=dog.water||'';
+  document.getElementById('w-lifenotes').value=dog.lifenotes||'';
+  await regeneratePlan();
+}
+
+function deleteDog(dogId){
+  if(!confirm('Remove this dog and all associated plans? This cannot be undone.'))return;
+  const db=getDB();
+  const user=db.users[state.currentUser.email];
+  user.dogs=(user.dogs||[]).filter(id=>id!==dogId);
+  user.plans=(user.plans||[]).filter(id=>!db.plans[id]||db.plans[id].dogId!==dogId);
+  Object.keys(db.plans).forEach(pid=>{if(db.plans[pid].dogId===dogId)delete db.plans[pid];});
+  delete db.dogs[dogId];
+  saveDB(db);
+  showNotif('Dog removed.','');
+  showDashboard();
+}
+
+function addAnotherDog(){
+  state.currentDog=null;
+  startWizard();
+}
+</script>
+</body>
+</html>
