@@ -23,20 +23,20 @@ exports.handler = async function (event) {
         "Authorization": `Bearer ${process.env.GROQ_API_KEY}`,
       },
       body: JSON.stringify({
-        model: "mixtral-8x7b-32768",
-        messages: [
-          {
-            role: "system",
-            content: "You are a canine nutrition expert. Create detailed, personalized dog nutrition plans.",
-          },
-          {
-            role: "user",
-            content: prompt,
-          },
-        ],
-        temperature: 0.7,
-        max_tokens: 2000,
-      }),
+  model: "llama-3.1-8b-instant",
+  messages: [
+    {
+      role: "system",
+      content: "You are a canine nutrition expert. Create detailed, personalized dog nutrition plans.",
+    },
+    {
+      role: "user",
+      content: prompt,
+    },
+  ],
+  temperature: 0.7,
+  max_tokens: 2000,
+}),
     });
 
     if (!response.ok) {
